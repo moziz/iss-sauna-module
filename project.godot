@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="ISS Sauna Module"
+run/main_scene="uid://cd10jrnd60na4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[physics]
+
+3d/default_gravity=0.0
 
 [rendering]
 

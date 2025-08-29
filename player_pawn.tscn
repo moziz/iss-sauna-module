@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cicsnrmc3tavf"]
+
+[ext_resource type="Script" uid="uid://bmx37ocrk7t4u" path="res://player_pawn.gd" id="1_f52xy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gh5hs"]
+radius = 0.3
+
+[node name="PlayerPawn" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 80.0
+script = ExtResource("1_f52xy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_gh5hs")
+
+[node name="Camera" type="Camera3D" parent="."]

@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cd10jrnd60na4"]
+[gd_scene load_steps=2 format=3 uid="uid://cd10jrnd60na4"]
+
+[ext_resource type="PackedScene" uid="uid://cicsnrmc3tavf" path="res://player_pawn.tscn" id="1_80nbo"]
 
 [node name="game" type="Node3D"]
+
+[node name="PlayerPawn" parent="." instance=ExtResource("1_80nbo")]
