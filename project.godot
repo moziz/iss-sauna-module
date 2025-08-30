@@ -15,6 +15,10 @@ run/main_scene="uid://cd10jrnd60na4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Interactable=""
+
 [input]
 
 jump={
