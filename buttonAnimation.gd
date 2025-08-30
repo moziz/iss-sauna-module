@@ -25,6 +25,6 @@ func _process(delta: float) -> void:
 		var sample = curve.sample(value)
 		self.position = startPos.lerp(targetPos, sample)
 		self.quaternion = startRot.slerp(targetRot, sample)
-		print ("animation")
+		#print ("animation")
 		if(value >= 1):
 			isAnimating = false

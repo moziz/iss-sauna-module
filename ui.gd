@@ -66,12 +66,16 @@ func ShowInfo(index):
 		infoText.text = informationTexts[index]
 		infoBox.visible = true
 		currentInfo = index
+		var mouse = $Mouse
+		mouse.visible = true
 
 func HideInfo():
 	var infoBox = $InfoBox
 	if(infoBox.visible):
 		print("Hide info")
 		infoBox.visible = false
+		var mouse = $Mouse
+		mouse.visible = false
 	
 func ShowTask(index):
 	if(index < taskTexts.size() &&  index >= 0):
@@ -82,3 +86,11 @@ func ShowTask(index):
 func ShowNextTask():
 	currentTask += 1
 	ShowTask(currentTask)
+	
+func ShowSpacebar():
+	var space = $Spacebar
+	space.visible = true
+	
+func HideSpacebar():
+	var space = $Spacebar
+	space.visible = false
