@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=23 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="Script" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://csoyj50qx4aqk" path="res://assets/models/showerRoom.fbx" id="6_o1q1g"]
 [ext_resource type="PackedScene" uid="uid://cpy1f7nygdewb" path="res://assets/models/superDoorToShowerRoom.fbx" id="7_gne00"]
 [ext_resource type="PackedScene" uid="uid://cgub8y4sqni2b" path="res://assets/shower.tscn" id="8_lgam8"]
+[ext_resource type="PackedScene" uid="uid://dxlmocf55ruqf" path="res://assets/models/saunaRoom.fbx" id="9_gne00"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
 
@@ -35,6 +36,18 @@ size = Vector3(0.31958, 2.20251, 4.60767)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lgam8"]
 size = Vector3(3.61169, 0.349976, 4.1488)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ygo81"]
+size = Vector3(0.124298, 2.23682, 1.59906)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_af0il"]
+size = Vector3(0.101807, 1.02838, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6lrdh"]
+size = Vector3(0.249329, 2.54498, 2.62268)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hv5fw"]
+size = Vector3(3.34337, 0.480347, 1)
+
 [node name="Module" type="Node3D"]
 
 [node name="InteractableCube" type="MeshInstance3D" parent="."]
@@ -47,7 +60,7 @@ mesh = SubResource("BoxMesh_w1di8")
 shape = SubResource("BoxShape3D_660kp")
 
 [node name="Kiulu" type="Node3D" parent="."]
-transform = Transform3D(0.518526, 0.739339, 0.429545, 0.0766058, 0.460167, -0.884521, -0.851623, 0.491553, 0.181971, -1.6361, 0.617631, 0)
+transform = Transform3D(0.518526, 0.739339, 0.429545, 0.0766058, 0.460167, -0.884521, -0.851623, 0.491553, 0.181971, -2.87831, 1.2394, -0.683913)
 
 [node name="0" type="StaticBody3D" parent="Kiulu" node_paths=PackedStringArray("animationNode") groups=["Interactable"]]
 script = ExtResource("2_2f2h0")
@@ -65,7 +78,7 @@ curve = SubResource("Curve_2f2h0")
 [node name="kiulu" parent="Kiulu/0" instance=ExtResource("3_2oqcl")]
 
 [node name="Space" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.73595e-07, 0, 1, 0, 5.50802, 0, -12.3848, 0, 0, -3.745, 0.699495, 0)
+transform = Transform3D(2.73595e-07, 0, 1, 0, 5.50802, 0, -12.3848, 0, 0, -8.49733, 0.699495, 0)
 mesh = SubResource("QuadMesh_o1q1g")
 surface_material_override/0 = SubResource("StandardMaterial3D_gne00")
 
@@ -85,10 +98,6 @@ shape = SubResource("BoxShape3D_o1q1g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77712, 1.01256, 0.199765)
 shape = SubResource("BoxShape3D_gne00")
 
-[node name="d4" type="CollisionShape3D" parent="showerRoom/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72729, 1.01256, 0.199765)
-shape = SubResource("BoxShape3D_gne00")
-
 [node name="d5" type="CollisionShape3D" parent="showerRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0680649, 2.17779, 0.0485814)
 shape = SubResource("BoxShape3D_lgam8")
@@ -100,4 +109,60 @@ shape = SubResource("BoxShape3D_lgam8")
 [node name="superDoorToShowerRoom" parent="." instance=ExtResource("7_gne00")]
 
 [node name="shower" parent="." instance=ExtResource("8_lgam8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.816254, 0, -0.791776)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.256482, 1.19209e-07, -1.1302)
+
+[node name="saunaRoom" parent="." instance=ExtResource("9_gne00")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="saunaRoom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52165, 1.00504, 1.25191)
+shape = SubResource("BoxShape3D_ygo81")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52165, 1.00504, -1.23481)
+shape = SubResource("BoxShape3D_ygo81")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4976, 1.64917, 0.032434)
+shape = SubResource("BoxShape3D_af0il")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4976, -0.257894, 0.032434)
+shape = SubResource("BoxShape3D_af0il")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89943, 0.952321, -0.0424562)
+shape = SubResource("BoxShape3D_6lrdh")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18913, 2.19348, -0.0424562)
+shape = SubResource("BoxShape3D_hv5fw")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -3.18913, 1.89279, -0.750146)
+shape = SubResource("BoxShape3D_hv5fw")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -3.18913, 1.01097, -1.11118)
+shape = SubResource("BoxShape3D_hv5fw")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, -3.18913, 0.187502, -0.803115)
+shape = SubResource("BoxShape3D_hv5fw")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -3.18809, -0.118302, 0.0690361)
+shape = SubResource("BoxShape3D_hv5fw")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -0.707107, -0.707107, 0, 0.707107, -0.707107, -3.18809, 0.182396, 0.776726)
+shape = SubResource("BoxShape3D_hv5fw")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -1, 0, 1, -8.74228e-08, -3.18809, 1.06421, 1.13776)
+shape = SubResource("BoxShape3D_hv5fw")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -3.18809, 1.88768, 0.829695)
+shape = SubResource("BoxShape3D_hv5fw")
