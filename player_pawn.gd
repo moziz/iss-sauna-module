@@ -7,7 +7,7 @@ extends RigidBody3D
 var action_jump: bool = false;
 var action_rotate: float = 0;
 var jump_cooldown_until_time: float = 0;
-var is_resting: bool = true;
+var is_contacting: bool = true;
 var confined: bool = false;
 var confinement_pos: Vector3 = Vector3.ZERO;
 var confinement_rot: Quaternion = Quaternion.IDENTITY;
@@ -33,20 +33,20 @@ func _physics_process(delta: float) -> void:
 	if action_jump:
 		var jump_dir = $Camera.quaternion * Vector3.FORWARD;
 		apply_central_impulse(jump_dir * jump_force);
-		action_jump = false
 		jump_cooldown_until_time = Time.get_ticks_msec() + jump_interval
+		action_jump = false
 		
 	if confined:
 		position = lerp(position, confinement_pos, delta)
 		$Camera.transform.basis = $Camera.transform.basis.slerp(confinement_rot, delta)
 
 func _on_body_entered (body: Node):
-	if !is_resting:
+	if !is_contacting:
 		linear_velocity = Vector3.ZERO
-		is_resting = true
+		is_contacting = true
 
 func _on_body_exited (body: Node):
-	is_resting = false
+	is_contacting = false
 
 func _input(event):
 	if event.is_action_pressed("mouse_capture"):
@@ -70,11 +70,14 @@ func _input(event):
 	if event.is_action_released("camera_rotate_cw") || event.is_action_released("camera_rotate_ccw"):
 		action_rotate = 0
 	
-	if event.is_action("jump") && is_resting && jump_cooldown_until_time < Time.get_ticks_msec():
+	if event.is_action("jump") && is_jump_allowed():
 		action_jump = true
 
 func _process(delta: float) -> void:
 	pass
+	
+func is_jump_allowed() -> bool:
+	return (is_contacting || linear_velocity.length_squared() < 0.01) && jump_cooldown_until_time < Time.get_ticks_msec()
 	
 func set_confinement_target(pos: Vector3, rot: Quaternion) -> void:
 	confined = true
