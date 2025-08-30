@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bmx37ocrk7t4u" path="res://player_pawn.gd" id="1_f52xy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gh5hs"]
-radius = 0.3
+radius = 0.2
 
 [sub_resource type="Environment" id="Environment_f52xy"]
 
