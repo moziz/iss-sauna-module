@@ -1,25 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd10jrnd60na4"]
+[gd_scene load_steps=4 format=3 uid="uid://cd10jrnd60na4"]
 
 [ext_resource type="PackedScene" uid="uid://cicsnrmc3tavf" path="res://player_pawn.tscn" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://cy15pvj6bxedt" path="res://module.tscn" id="2_feb5d"]
-[ext_resource type="PackedScene" uid="uid://33klbagvufw" path="res://ui.tscn" id="3_fc0e3"]
-
-[sub_resource type="Environment" id="Environment_e2o6t"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_feb5d"]
+[ext_resource type="PackedScene" path="res://module.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" path="res://ui.tscn" id="3_fc0e3"]
 
 [node name="game" type="Node3D"]
 
 [node name="PlayerPawn" parent="." instance=ExtResource("1_80nbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22273, 0)
-
-[node name="Camera3D" type="Camera3D" parent="PlayerPawn"]
-fov = 90.0
-far = 1000.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="PlayerPawn/Camera3D"]
-environment = SubResource("Environment_e2o6t")
-camera_attributes = SubResource("CameraAttributesPractical_feb5d")
 
 [node name="Module" parent="." instance=ExtResource("2_feb5d")]
 
