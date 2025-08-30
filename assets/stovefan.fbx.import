@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ydt7ssqtv17y"
-path="res://.godot/imported/suihkubox.fbx-653996cd4bb604fa2d3d845f001bcc47.scn"
+uid="uid://cxaejd12ehicj"
+path="res://.godot/imported/stovefan.fbx-1d4d40a1d342b41a0b47c08e961ce33d.scn"
 
 [deps]
 
-source_file="res://assets/suihkubox.fbx"
-dest_files=["res://.godot/imported/suihkubox.fbx-653996cd4bb604fa2d3d845f001bcc47.scn"]
+source_file="res://assets/stovefan.fbx"
+dest_files=["res://.godot/imported/stovefan.fbx-1d4d40a1d342b41a0b47c08e961ce33d.scn"]
 
 [params]
 
@@ -32,13 +32,7 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:showerRoom": {
-"physics/shape_type": 2
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
