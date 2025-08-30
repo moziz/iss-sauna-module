@@ -50,7 +50,8 @@ func _process(delta: float) -> void:
 			collisionTimer = 0
 			var interaction_object_id = targetObject.get_name().to_int()
 			ShowInfo(interaction_object_id)
-			if Input.is_key_pressed(KEY_ENTER):
+			#if Input.is_key_pressed(KEY_ENTER):
+			if Input.is_action_pressed("interact"):
 				taskManager.interacted_with(interaction_object_id, targetObject)
 	else:
 		if(collisionTimer > 0.33):

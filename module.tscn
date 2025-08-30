@@ -1,15 +1,32 @@
-[gd_scene load_steps=24 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=45 format=3 uid="uid://fcg8xj0gq6m1"]
 
-[ext_resource type="Script" path="res://kiulu.gd" id="2_2f2h0"]
+[ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
-[ext_resource type="Script" path="res://buttonAnimation.gd" id="3_2f2h0"]
+[ext_resource type="Script" uid="uid://b7kb5beykdbtn" path="res://buttonAnimation.gd" id="3_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://81d2g1oftyf5" path="res://assets/kiulu.fbx" id="3_2oqcl"]
 [ext_resource type="Texture2D" uid="uid://dve0cao3yb78f" path="res://assets/space.png" id="4_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://csoyj50qx4aqk" path="res://assets/models/showerRoom.fbx" id="6_o1q1g"]
 [ext_resource type="PackedScene" uid="uid://cpy1f7nygdewb" path="res://assets/models/superDoorToShowerRoom.fbx" id="7_gne00"]
 [ext_resource type="PackedScene" uid="uid://cgub8y4sqni2b" path="res://assets/shower.tscn" id="8_lgam8"]
 [ext_resource type="PackedScene" uid="uid://dxlmocf55ruqf" path="res://assets/models/saunaRoom.fbx" id="9_gne00"]
+[ext_resource type="PackedScene" uid="uid://csciw0dycqoru" path="res://assets/saunaLight.fbx" id="10_5dceb"]
 [ext_resource type="PackedScene" uid="uid://d3dgui4molxvy" path="res://assets/light_warm.tscn" id="10_lgam8"]
+[ext_resource type="PackedScene" uid="uid://y42vpdg12i01" path="res://assets/stove.fbx" id="11_6lrdh"]
+[ext_resource type="PackedScene" uid="uid://dgm1j4f2dsmnj" path="res://assets/meter.fbx" id="11_ji72h"]
+[ext_resource type="PackedScene" uid="uid://cxaejd12ehicj" path="res://assets/stovefan.fbx" id="12_hv5fw"]
+[ext_resource type="PackedScene" uid="uid://dahjo8bqbaxla" path="res://assets/models/saunaDoor.fbx" id="12_veemk"]
+[ext_resource type="Script" uid="uid://cgymovgb0cwp8" path="res://assets/stovefan.gd" id="13_wujch"]
+[ext_resource type="PackedScene" uid="uid://0ql043hjvr1j" path="res://assets/net.fbx" id="15_jdhfq"]
+[ext_resource type="PackedScene" uid="uid://cxelt1npjh4d" path="res://assets/netclothes.fbx" id="16_ji72h"]
+[ext_resource type="PackedScene" uid="uid://dcjafg41df5c7" path="res://assets/radio.fbx" id="18_a18vj"]
+[ext_resource type="PackedScene" uid="uid://d01d58gy55pnj" path="res://assets/bottle.fbx" id="19_jtfys"]
+[ext_resource type="PackedScene" uid="uid://c0300wpvvhyo7" path="res://assets/vasta.fbx" id="20_3inim"]
+[ext_resource type="PackedScene" uid="uid://cygpy613aba56" path="res://assets/water.fbx" id="22_oy7hm"]
+[ext_resource type="Shader" uid="uid://pks8p4few2gs" path="res://water.tres" id="23_5jx5j"]
+[ext_resource type="PackedScene" uid="uid://brx4xvko6u10n" path="res://assets/models/saunaButtonFrame.fbx" id="24_jolga"]
+[ext_resource type="PackedScene" uid="uid://d2x5toobhgd1f" path="res://assets/models/saunaButtonButton.fbx" id="25_8hq0f"]
+[ext_resource type="Texture2D" uid="uid://yqmh58bnlkqg" path="res://assets/Sauna_warming_Icon_Jam.png" id="26_qrg3e"]
+[ext_resource type="Texture2D" uid="uid://8o7oe0edaguc" path="res://assets/Sweat_button_icon_Sauna_Jam.png" id="27_qjy7u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
 
@@ -49,6 +66,20 @@ size = Vector3(0.249329, 2.54498, 2.62268)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hv5fw"]
 size = Vector3(3.34337, 0.480347, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnqn2"]
+render_priority = 0
+shader = ExtResource("23_5jx5j")
+
+[sub_resource type="QuadMesh" id="QuadMesh_t77ke"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fln2q"]
+transparency = 1
+albedo_texture = ExtResource("26_qrg3e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de3n0"]
+transparency = 1
+albedo_texture = ExtResource("27_qjy7u")
+
 [node name="Module" type="Node3D"]
 
 [node name="InteractableCube" type="MeshInstance3D" parent="."]
@@ -79,7 +110,7 @@ curve = SubResource("Curve_2f2h0")
 [node name="kiulu" parent="Kiulu/0" instance=ExtResource("3_2oqcl")]
 
 [node name="Space" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.73595e-07, 0, 1, 0, 5.50802, 0, -12.3848, 0, 0, -8.49733, 0.699495, 0)
+transform = Transform3D(7.38433e-07, -14.8661, -1.17977e-07, 0, -6.4982e-07, 2.699, -33.4266, -3.28411e-07, -5.96241e-08, -3.32827, -2.64907, 6.86385e-08)
 mesh = SubResource("QuadMesh_o1q1g")
 surface_material_override/0 = SubResource("StandardMaterial3D_gne00")
 
@@ -168,6 +199,18 @@ shape = SubResource("BoxShape3D_hv5fw")
 transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -3.18809, 1.88768, 0.829695)
 shape = SubResource("BoxShape3D_hv5fw")
 
+[node name="saunaLight" parent="saunaRoom" instance=ExtResource("10_5dceb")]
+transform = Transform3D(-2.0838e-09, -0.694448, 7.57532e-09, -0.347224, -2.06961e-08, -0.601409, 0.601409, 0, -0.347224, -1.96155, 1.54248, -0.74667)
+
+[node name="meter" parent="saunaRoom" instance=ExtResource("11_ji72h")]
+transform = Transform3D(-2.03816e-08, -1, -5.83606e-08, -0.43443, -4.37114e-08, 0.900706, -0.900706, 4.37114e-08, -0.43443, -3.17356, 1.4428, 0.873224)
+
+[node name="SaunaDoorHinge" type="Node3D" parent="saunaRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48375, 0.70489, -0.429005)
+
+[node name="saunaDoor" parent="saunaRoom/SaunaDoorHinge" instance=ExtResource("12_veemk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48375, -0.70489, 0.429005)
+
 [node name="light_warm" parent="." instance=ExtResource("10_lgam8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82606, 0.950781, 2.38419e-07)
 
@@ -179,3 +222,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46484, 1.0078, 1.11004)
 
 [node name="light_warm4" parent="." instance=ExtResource("10_lgam8")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.17879, 1.9825, -0.0121155)
+
+[node name="Stove" type="Node3D" parent="."]
+transform = Transform3D(2.17096e-08, -6.07599e-09, 1, 0.999245, -0.0388412, -7.33417e-09, 0.0388413, 0.999245, -1.49012e-08, -3.64435, 0.413181, -0.0803139)
+
+[node name="stove" parent="Stove" instance=ExtResource("11_6lrdh")]
+
+[node name="stovefan" parent="Stove" instance=ExtResource("12_hv5fw")]
+script = ExtResource("13_wujch")
+
+[node name="ClothesNet" type="Node3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0, -8.74228e-08, 7.64274e-15, -1, -0.757479, 1.08561, 1.88718)
+
+[node name="net" parent="ClothesNet" instance=ExtResource("15_jdhfq")]
+
+[node name="netclothes" parent="ClothesNet" instance=ExtResource("16_ji72h")]
+
+[node name="Radio" parent="." instance=ExtResource("18_a18vj")]
+transform = Transform3D(8.06674e-08, 0, -0.615152, 0, 0.615152, 0, 0.615152, 0, 8.06674e-08, 1.49586, 0.908142, 1.31105)
+
+[node name="Beer" parent="." instance=ExtResource("19_jtfys")]
+transform = Transform3D(0.42555, -0.84881, -0.313734, 0.0555573, 0.370544, -0.927152, 0.903228, 0.377119, 0.204843, -2.37407, 1.13626, -0.251755)
+
+[node name="Whisk" parent="." instance=ExtResource("20_3inim")]
+transform = Transform3D(0.498656, -0.488649, 0.0802782, 0.490525, 0.503032, 0.014985, -0.0678816, 0.0454007, 0.698005, -2.64845, 0.714491, 0.712488)
+
+[node name="Water" parent="." instance=ExtResource("22_oy7hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56454, 0.56071, 0.0375381)
+
+[node name="water" parent="Water" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_wnqn2")
+
+[node name="SaunaHeaterButton" parent="." instance=ExtResource("24_jolga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00465873, -0.00117618, 0.0183192)
+
+[node name="saunaButtonButton" parent="SaunaHeaterButton" instance=ExtResource("25_8hq0f")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SaunaHeaterButton"]
+transform = Transform3D(-7.85219e-09, 0, 0.179637, 0, 0.179637, 0, -0.179637, 0, -7.85219e-09, -1.49547, 0.864183, 0.732876)
+mesh = SubResource("QuadMesh_t77ke")
+surface_material_override/0 = SubResource("StandardMaterial3D_fln2q")
+
+[node name="SaunaFanButton" parent="." instance=ExtResource("24_jolga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00465873, -0.00117618, -1.49144)
+
+[node name="saunaButtonButton" parent="SaunaFanButton" instance=ExtResource("25_8hq0f")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SaunaFanButton"]
+transform = Transform3D(-7.85219e-09, 0, 0.179637, 0, 0.179637, 0, -0.179637, 0, -7.85219e-09, -1.49547, 0.864183, 0.738479)
+mesh = SubResource("QuadMesh_t77ke")
+skeleton = NodePath("../../SaunaHeaterButton")
+surface_material_override/0 = SubResource("StandardMaterial3D_de3n0")
+
+[editable path="saunaRoom"]
+[editable path="Water"]
