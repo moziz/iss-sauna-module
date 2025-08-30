@@ -1,4 +1,4 @@
-extends Control
+class_name UI extends Control
 
 var informationTexts = [
 "Info\nI am info",
@@ -14,24 +14,28 @@ var currentInfo = 0
 var currentTask = 0
 var collisionTimer = 0
 
+var taskManager: TaskManager
+
 func _init() -> void:
 	pass
-	
+
 func _ready() -> void:
 	var ray =  $"../PlayerPawn/Camera/ViewRay"
 	ray.target_position.z = -0.4
+	taskManager = get_parent().find_child("TaskManager")
 	HideInfo()
-	
+
 func _process(delta: float) -> void:
 	var ray =  $"../PlayerPawn/Camera/ViewRay"
 	var targetObject = ray.get_collider()
 	if(ray.is_colliding()):
 		if(targetObject.is_in_group("Interactable")):
 			collisionTimer = 0
-			ShowInfo(targetObject.get_name().to_int())
+			var interaction_object_id = targetObject.get_name().to_int()
+			ShowInfo(interaction_object_id)
 			if Input.is_key_pressed(KEY_ENTER): 
 				print("Interact!")
-				targetObject.Interact()
+				taskManager.interacted_with(interaction_object_id, targetObject)
 	else:
 		if(collisionTimer > 0.33):
 			HideInfo()

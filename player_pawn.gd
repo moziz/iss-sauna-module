@@ -1,8 +1,8 @@
 extends RigidBody3D
 
-var aim_speed = 0.0075
-var jump_force = 80.0
-var jump_interval = 500 # msec
+@export var aim_speed = 0.0075
+@export var jump_force = 80.0
+@export var jump_interval = 500 # msec
 
 var action_jump: bool = false;
 var action_rotate: float = 0;
