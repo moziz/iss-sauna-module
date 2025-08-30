@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=24 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="Script" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cpy1f7nygdewb" path="res://assets/models/superDoorToShowerRoom.fbx" id="7_gne00"]
 [ext_resource type="PackedScene" uid="uid://cgub8y4sqni2b" path="res://assets/shower.tscn" id="8_lgam8"]
 [ext_resource type="PackedScene" uid="uid://dxlmocf55ruqf" path="res://assets/models/saunaRoom.fbx" id="9_gne00"]
+[ext_resource type="PackedScene" uid="uid://d3dgui4molxvy" path="res://assets/light_warm.tscn" id="10_lgam8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
 
@@ -166,3 +167,15 @@ shape = SubResource("BoxShape3D_hv5fw")
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="saunaRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -3.18809, 1.88768, 0.829695)
 shape = SubResource("BoxShape3D_hv5fw")
+
+[node name="light_warm" parent="." instance=ExtResource("10_lgam8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82606, 0.950781, 2.38419e-07)
+
+[node name="light_warm2" parent="." instance=ExtResource("10_lgam8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46484, 1.0078, -1.02265)
+
+[node name="light_warm3" parent="." instance=ExtResource("10_lgam8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46484, 1.0078, 1.11004)
+
+[node name="light_warm4" parent="." instance=ExtResource("10_lgam8")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.17879, 1.9825, -0.0121155)
