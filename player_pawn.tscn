@@ -21,6 +21,9 @@ shape = SubResource("SphereShape3D_gh5hs")
 
 [node name="Camera" type="Camera3D" parent="."]
 
+[node name="ViewRay" type="RayCast3D" parent="Camera"]
+target_position = Vector3(0, 0, -1)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f52xy")
 camera_attributes = SubResource("CameraAttributesPractical_788fa")
