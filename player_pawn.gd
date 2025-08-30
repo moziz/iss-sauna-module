@@ -1,14 +1,16 @@
 extends RigidBody3D
 
-var aim_speed = 0.0075
-var jump_force = 80.0
-var jump_interval = 500 # msec
+@export var aim_speed = 0.0075
+@export var jump_force = 80.0
+@export var jump_interval = 500 # msec
 
 var action_jump: bool = false;
 var action_rotate: float = 0;
 var jump_cooldown_until_time: float = 0;
-
 var is_resting: bool = true;
+var confined: bool = false;
+var confinement_pos: Vector3 = Vector3.ZERO;
+var confinement_rot: Quaternion = Quaternion.IDENTITY;
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -33,6 +35,10 @@ func _physics_process(delta: float) -> void:
 		apply_central_impulse(jump_dir * jump_force);
 		action_jump = false
 		jump_cooldown_until_time = Time.get_ticks_msec() + jump_interval
+		
+	if confined:
+		position = lerp(position, confinement_pos, delta)
+		$Camera.transform.basis = $Camera.transform.basis.slerp(confinement_rot, delta)
 
 func _on_body_entered (body: Node):
 	if !is_resting:
@@ -48,7 +54,10 @@ func _input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
+
+	if confined:
+		return;
+
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		$Camera.rotate($Camera.quaternion * Vector3.LEFT, event.relative.y * aim_speed)
 		$Camera.rotate($Camera.quaternion * Vector3.UP, -event.relative.x * aim_speed)
@@ -66,3 +75,14 @@ func _input(event):
 
 func _process(delta: float) -> void:
 	pass
+	
+func set_confinement_target(pos: Vector3, rot: Quaternion) -> void:
+	confined = true
+	confinement_pos = pos;
+	confinement_rot = rot;
+	linear_velocity = Vector3.ZERO
+
+func release_confinement():
+	confined = false
+	confinement_pos = Vector3.ZERO
+	confinement_rot = Quaternion.IDENTITY
