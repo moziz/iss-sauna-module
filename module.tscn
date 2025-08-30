@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=7 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="PackedScene" uid="uid://ydt7ssqtv17y" path="res://assets/suihkubox.fbx" id="1_w1di8"]
 
@@ -10,6 +10,10 @@ size = Vector3(0.490479, 2.52991, 1.03394)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2l70"]
 size = Vector3(3.38568, 2.72705, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_660kp"]
 
 [node name="Module" type="Node3D"]
 
@@ -51,3 +55,12 @@ shape = SubResource("BoxShape3D_r2l70")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="suihkubox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933166, 0)
+
+[node name="InteractableCube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39187, 0.840691, 0)
+mesh = SubResource("BoxMesh_w1di8")
+
+[node name="0" type="StaticBody3D" parent="InteractableCube" groups=["Interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableCube/0"]
+shape = SubResource("BoxShape3D_660kp")
