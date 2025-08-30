@@ -6,9 +6,26 @@ var informationTexts = [
 "Info\nI am info three"]
 			
 var taskTexts = [
-"Task\nFirst task",
-"Task\nSecond task",
-"Task\nThird task"]
+"Task 1|20\nTurn the sauna heater on",
+"Task 2|20\nTurn the sauna ventilation on",
+"Task 3|20\nTake off your clothes",
+"Task 4|20\nOpen the shower door",
+"Task 5|20\nSecure your feet to the shower",
+"Task 6|20\nClose the shower door",
+"Task 7|20\nStart the shower",
+"Task 8|20\nClean yourself with the shower head",
+"Task 9|20\nStop and ventilate the shower",
+"Task 10|20\nDetach yourself",
+"Task 11|20\nOpen the shower door",
+"Task 12|20\nOpen the sauna door",
+"Task 13|20\nGo inside sauna",
+"Task 14|20\nClose the sauna door",
+"Task 15|20\nAttach yourself to the floor",
+"Task 16|20\nThrow löyly!",
+"Task 17|20\nUse the sauna whisk",
+"Task 18|20\nThrow löyty!",
+"Task 19|20\nEnjoy a cold one",
+"Task 20|20\nThrow löyty!"]
 
 var currentInfo = 0
 var currentTask = 0
