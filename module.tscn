@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy15pvj6bxedt"]
+
+[ext_resource type="PackedScene" uid="uid://ydt7ssqtv17y" path="res://assets/suihkubox.fbx" id="1_w1di8"]
+
+[node name="Module" type="Node3D"]
+
+[node name="suihkubox" parent="." instance=ExtResource("1_w1di8")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="suihkubox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933166, 0)
