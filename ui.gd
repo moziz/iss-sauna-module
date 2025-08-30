@@ -18,6 +18,8 @@ func _init() -> void:
 	pass
 	
 func _ready() -> void:
+	var ray =  $"../PlayerPawn/Camera/ViewRay"
+	ray.target_position.z = -0.4
 	HideInfo()
 	
 func _process(delta: float) -> void:

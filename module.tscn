@@ -1,6 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=16 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="PackedScene" uid="uid://ydt7ssqtv17y" path="res://assets/suihkubox.fbx" id="1_w1di8"]
+[ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
+[ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
+[ext_resource type="Script" uid="uid://b7kb5beykdbtn" path="res://buttonAnimation.gd" id="3_2f2h0"]
+[ext_resource type="PackedScene" uid="uid://81d2g1oftyf5" path="res://assets/kiulu.fbx" id="3_2oqcl"]
+[ext_resource type="Texture2D" uid="uid://dve0cao3yb78f" path="res://assets/space.png" id="4_2f2h0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w1di8"]
 size = Vector3(3.71521, 0.978455, 3.88501)
@@ -14,6 +19,19 @@ size = Vector3(3.38568, 2.72705, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_660kp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j80bs"]
+radius = 0.14
+height = 0.4
+
+[sub_resource type="Curve" id="Curve_2f2h0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.496914, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="QuadMesh" id="QuadMesh_o1q1g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gne00"]
+albedo_texture = ExtResource("4_2f2h0")
 
 [node name="Module" type="Node3D"]
 
@@ -64,3 +82,26 @@ mesh = SubResource("BoxMesh_w1di8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableCube/0"]
 shape = SubResource("BoxShape3D_660kp")
+
+[node name="Kiulu" type="Node3D" parent="."]
+transform = Transform3D(0.518526, 0.739339, 0.429545, 0.0766058, 0.460167, -0.884521, -0.851623, 0.491553, 0.181971, -1.6361, 0.617631, 0)
+
+[node name="0" type="StaticBody3D" parent="Kiulu" node_paths=PackedStringArray("animationNode") groups=["Interactable"]]
+script = ExtResource("2_2f2h0")
+animationNode = NodePath("kiuluButton")
+
+[node name="Collider" type="CollisionShape3D" parent="Kiulu/0"]
+shape = SubResource("CapsuleShape3D_j80bs")
+
+[node name="kiuluButton" parent="Kiulu/0" instance=ExtResource("2_660kp")]
+script = ExtResource("3_2f2h0")
+targetPos = Vector3(0, -0.03, 0)
+speed = 1.0
+curve = SubResource("Curve_2f2h0")
+
+[node name="kiulu" parent="Kiulu/0" instance=ExtResource("3_2oqcl")]
+
+[node name="Space" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.73595e-07, 0, 1, 0, 5.50802, 0, -12.3848, 0, 0, -3.745, 0.699495, 0)
+mesh = SubResource("QuadMesh_o1q1g")
+surface_material_override/0 = SubResource("StandardMaterial3D_gne00")
