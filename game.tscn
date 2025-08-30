@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cicsnrmc3tavf" path="res://player_pawn.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dow5bkywfo3ei" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://fcg8xj0gq6m1" path="res://module.tscn" id="2_feb5d"]
-[ext_resource type="PackedScene" path="res://ui.tscn" id="3_fc0e3"]
-[ext_resource type="Script" uid="uid://qfgga366b0q6" path="res://task_manager.gd" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://33klbagvufw" path="res://ui.tscn" id="3_fc0e3"]
+[ext_resource type="Script" path="res://task_manager.gd" id="5_7jktm"]
 
 [node name="game" type="Node3D"]
 script = ExtResource("1_fc0e3")
