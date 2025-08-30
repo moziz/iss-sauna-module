@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="PackedScene" uid="uid://ydt7ssqtv17y" path="res://assets/suihkubox.fbx" id="1_w1di8"]
-[ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
+[ext_resource type="Script" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
-[ext_resource type="Script" uid="uid://b7kb5beykdbtn" path="res://buttonAnimation.gd" id="3_2f2h0"]
+[ext_resource type="Script" path="res://buttonAnimation.gd" id="3_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://81d2g1oftyf5" path="res://assets/kiulu.fbx" id="3_2oqcl"]
 [ext_resource type="Texture2D" uid="uid://dve0cao3yb78f" path="res://assets/space.png" id="4_2f2h0"]
 

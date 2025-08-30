@@ -13,13 +13,14 @@ func _ready():
 	assert(ui)
 
 func _process(delta: float) -> void:
-	ui.currentTask
-
+	pass
 
 func interacted_with(interactable_id: int, target_object: Node) -> void:
 	var requirement = taskRequirement[ui.currentTask];
 	if interactable_id == requirement:
-		target_object.Interact()
-
-		print("task done")
+		if target_object.has_method("Interact"):
+			target_object.Interact()
+		print("Task done")
 		ui.ShowNextTask()
+	else:
+		print("Invalid interaction target. Required: ", requirement)
