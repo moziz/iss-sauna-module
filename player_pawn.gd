@@ -49,6 +49,9 @@ func _on_body_exited (body: Node):
 	is_contacting = false
 
 func _input(event):
+	if event.is_action_pressed("interact"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	if event.is_action_pressed("mouse_capture"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
