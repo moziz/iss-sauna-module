@@ -10,9 +10,12 @@ var jump_cooldown_until_time: float = 0;
 var is_contacting: bool = true;
 var confined: bool = false;
 var confinement_pos: Vector3 = Vector3.ZERO;
-var confinement_rot: Quaternion = Quaternion.IDENTITY;
+
+static var active_player: PlayerPawn
 
 func _ready() -> void:
+	active_player = self
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# Physics
@@ -38,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		
 	if confined:
 		position = lerp(position, confinement_pos, delta)
-		$Camera.transform.basis = $Camera.transform.basis.slerp(confinement_rot, delta)
+		#$Camera.transform.basis = $Camera.transform.basis.slerp(confinement_rot, delta)
 
 func _on_body_entered (body: Node):
 	if !is_contacting:
@@ -57,9 +60,6 @@ func _input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-	if confined:
-		return;
 
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		$Camera.rotate($Camera.quaternion * Vector3.LEFT, event.relative.y * aim_speed)
@@ -80,15 +80,13 @@ func _process(delta: float) -> void:
 	pass
 	
 func is_jump_allowed() -> bool:
-	return (is_contacting || linear_velocity.length_squared() < 0.01) && jump_cooldown_until_time < Time.get_ticks_msec()
+	return !confined && (is_contacting || linear_velocity.length_squared() < 0.01) && jump_cooldown_until_time < Time.get_ticks_msec()
 	
-func set_confinement_target(pos: Vector3, rot: Quaternion) -> void:
+func set_confinement_target(pos: Vector3) -> void:
 	confined = true
 	confinement_pos = pos;
-	confinement_rot = rot;
 	linear_velocity = Vector3.ZERO
 
 func release_confinement():
 	confined = false
 	confinement_pos = Vector3.ZERO
-	confinement_rot = Quaternion.IDENTITY

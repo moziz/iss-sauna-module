@@ -1,6 +1,6 @@
-[gd_scene load_steps=47 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=50 format=3 uid="uid://fcg8xj0gq6m1"]
 
-[ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
+[ext_resource type="Script" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
 [ext_resource type="Script" uid="uid://b7kb5beykdbtn" path="res://buttonAnimation.gd" id="3_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://81d2g1oftyf5" path="res://assets/kiulu.fbx" id="3_2oqcl"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dgm1j4f2dsmnj" path="res://assets/meter.fbx" id="11_ji72h"]
 [ext_resource type="PackedScene" uid="uid://cxaejd12ehicj" path="res://assets/stovefan.fbx" id="12_hv5fw"]
 [ext_resource type="PackedScene" uid="uid://dahjo8bqbaxla" path="res://assets/models/saunaDoor.fbx" id="12_veemk"]
-[ext_resource type="Script" uid="uid://cgymovgb0cwp8" path="res://assets/stovefan.gd" id="13_wujch"]
+[ext_resource type="Script" path="res://assets/stovefan.gd" id="13_wujch"]
 [ext_resource type="PackedScene" uid="uid://cn64n4pxv0i13" path="res://assets/models/saunaDoorGlass.fbx" id="14_8hq0f"]
 [ext_resource type="PackedScene" uid="uid://0ql043hjvr1j" path="res://assets/net.fbx" id="15_jdhfq"]
 [ext_resource type="PackedScene" uid="uid://cf2b3msj4hp17" path="res://assets/models/saunaRoomGlass.fbx" id="15_qrg3e"]
@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://d01d58gy55pnj" path="res://assets/bottle.fbx" id="19_jtfys"]
 [ext_resource type="PackedScene" uid="uid://c0300wpvvhyo7" path="res://assets/vasta.fbx" id="20_3inim"]
 [ext_resource type="PackedScene" uid="uid://cygpy613aba56" path="res://assets/water.fbx" id="22_oy7hm"]
-[ext_resource type="Shader" uid="uid://pks8p4few2gs" path="res://water.tres" id="23_5jx5j"]
+[ext_resource type="Shader" uid="uid://dv2f46tt43kom" path="res://water.tres" id="23_5jx5j"]
 [ext_resource type="PackedScene" uid="uid://brx4xvko6u10n" path="res://assets/models/saunaButtonFrame.fbx" id="24_jolga"]
 [ext_resource type="PackedScene" uid="uid://d2x5toobhgd1f" path="res://assets/models/saunaButtonButton.fbx" id="25_8hq0f"]
 [ext_resource type="Texture2D" uid="uid://yqmh58bnlkqg" path="res://assets/Sauna_warming_Icon_Jam.png" id="26_qrg3e"]
@@ -65,6 +65,12 @@ size = Vector3(0.249329, 2.54498, 2.62268)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hv5fw"]
 size = Vector3(3.34337, 0.480347, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8hq0f"]
+size = Vector3(0.112061, 0.87207, 0.928619)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qrg3e"]
+radius = 0.177706
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnqn2"]
 render_priority = 0
 shader = ExtResource("23_5jx5j")
@@ -74,6 +80,9 @@ shader = ExtResource("23_5jx5j")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fln2q"]
 transparency = 1
 albedo_texture = ExtResource("26_qrg3e")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8hq0f"]
+radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de3n0"]
 transparency = 1
@@ -93,20 +102,20 @@ shape = SubResource("BoxShape3D_660kp")
 [node name="Kiulu" type="Node3D" parent="."]
 transform = Transform3D(0.518526, 0.739339, 0.429545, 0.0766058, 0.460167, -0.884521, -0.851623, 0.491553, 0.181971, -2.87831, 1.2394, -0.683913)
 
-[node name="0" type="StaticBody3D" parent="Kiulu" node_paths=PackedStringArray("animationNode") groups=["Interactable"]]
+[node name="16 18 20" type="StaticBody3D" parent="Kiulu" node_paths=PackedStringArray("animationNode") groups=["Interactable"]]
 script = ExtResource("2_2f2h0")
 animationNode = NodePath("kiuluButton")
 
-[node name="Collider" type="CollisionShape3D" parent="Kiulu/0"]
+[node name="Collider" type="CollisionShape3D" parent="Kiulu/16 18 20"]
 shape = SubResource("CapsuleShape3D_j80bs")
 
-[node name="kiuluButton" parent="Kiulu/0" instance=ExtResource("2_660kp")]
+[node name="kiuluButton" parent="Kiulu/16 18 20" instance=ExtResource("2_660kp")]
 script = ExtResource("3_2f2h0")
 targetPos = Vector3(0, -0.03, 0)
 speed = 1.0
 curve = SubResource("Curve_2f2h0")
 
-[node name="kiulu" parent="Kiulu/0" instance=ExtResource("3_2oqcl")]
+[node name="kiulu" parent="Kiulu/16 18 20" instance=ExtResource("3_2oqcl")]
 
 [node name="showerRoom" parent="." instance=ExtResource("6_o1q1g")]
 
@@ -216,6 +225,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.484, -0.705, 0.429)
 [node name="saunaDoorGlass" parent="saunaRoom/SaunaDoorHinge/saunaDoorGlass" index="0"]
 surface_material_override/0 = ExtResource("9_8hq0f")
 
+[node name="11 13" type="StaticBody3D" parent="saunaRoom/SaunaDoorHinge" groups=["Interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="saunaRoom/SaunaDoorHinge/11 13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0135498, 0.00439453, 0.428726)
+shape = SubResource("BoxShape3D_8hq0f")
+
 [node name="saunaRoomGlass" parent="saunaRoom" instance=ExtResource("15_qrg3e")]
 
 [node name="saunaRoomGlass" parent="saunaRoom/saunaRoomGlass" index="0"]
@@ -249,6 +264,12 @@ transform = Transform3D(1, -8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0, -8.7
 
 [node name="netclothes" parent="ClothesNet" instance=ExtResource("16_ji72h")]
 
+[node name="2" type="StaticBody3D" parent="ClothesNet" groups=["Interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClothesNet/2"]
+transform = Transform3D(1, -6.6815e-22, 0, -6.6815e-22, 1, 0, 0, 0, 1, 0, -0.0218878, 0.0238166)
+shape = SubResource("SphereShape3D_qrg3e")
+
 [node name="Radio" parent="." instance=ExtResource("18_a18vj")]
 transform = Transform3D(8.06674e-08, 0, -0.615152, 0, 0.615152, 0, 0.615152, 0, 8.06674e-08, 1.49586, 0.908142, 1.31105)
 
@@ -274,6 +295,12 @@ transform = Transform3D(-7.85219e-09, 0, 0.179637, 0, 0.179637, 0, -0.179637, 0,
 mesh = SubResource("QuadMesh_t77ke")
 surface_material_override/0 = SubResource("StandardMaterial3D_fln2q")
 
+[node name="0" type="StaticBody3D" parent="SaunaHeaterButton" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50195, 0.696161, 0.736202)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SaunaHeaterButton/0"]
+shape = SubResource("SphereShape3D_8hq0f")
+
 [node name="SaunaFanButton" parent="." instance=ExtResource("24_jolga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00465873, -0.00117618, -1.49144)
 
@@ -284,6 +311,12 @@ transform = Transform3D(-7.85219e-09, 0, 0.179637, 0, 0.179637, 0, -0.179637, 0,
 mesh = SubResource("QuadMesh_t77ke")
 skeleton = NodePath("../../SaunaHeaterButton")
 surface_material_override/0 = SubResource("StandardMaterial3D_de3n0")
+
+[node name="1" type="StaticBody3D" parent="SaunaFanButton" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50195, 0.696161, 0.736202)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SaunaFanButton/1"]
+shape = SubResource("SphereShape3D_8hq0f")
 
 [node name="dome" parent="." instance=ExtResource("31_8hq0f")]
 transform = Transform3D(-26.0144, 2.27425e-06, 0, -2.27425e-06, -26.0144, 0, 0, 0, 26.0144, -3.12715, 3.10006, 0)

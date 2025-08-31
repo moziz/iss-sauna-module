@@ -1,27 +1,44 @@
 class_name UI extends Control
 
+
+
+
+
+
+
 var informationTexts = [
-"Info\nSauna heater",		#0
-"Info\nSauna ventilation",	#1
-"Info\nClothes net",		#2
-"Info\nShower door",		#3
-"Info\nShower feet clamps",	#4
-"Info\nShower start",		#5
-"Info\nShower head",		#6
-"Info\nShower stop",		#7
-"Info\nSauna door",			#8
-"Info\nSauna feet clamps",	#9
-"Info\nKiulu",				#10
-"Info\nSauna whisk",		#11
-"Info\nBeer",				#12
-"Info\nRadio",				#13
-"Info\nSmart window",		#14
-"Info\nSauna stove",		#15
-"Info\nTemperature sensor"]	#16
-			
+"Info\nHello space traveler! I am your friendly sauna gnome assistant, ready to help!\nBefore entering the sauna, cleanse your spirit with a refreshing shower.\nMeanwhile, ISS waste heat will be heating the sauna.\nReady to get your sweat on?",
+"Info\nThis Sweat Collector gathers the sweat bubbles excreted during a sauna session and gathers it for water recycling. Did you know? You are drinking the sweat of your colleagues!",
+"Info\nA net for your clothes. Buck naked in the sauna, as they say!",
+"Info\nShower door",
+"Info\nWhoa! Dont float away, space cowboy! These feet clamps include temperature and shower controls usable by twisting your feet.",
+"Info\nShower door",
+"Info\nShower start",
+"Info\nThe shower works much like a normal shower – except it’s more contained, and the water stays floating inside of the shower!",
+"Info\nTurns off the shower and sucks the water out with the suction head by pressing this button.",
+"Info\nDetach feet",
+"Info\nShower door",
+"Info\nSauna door",
+"Info\nSauna feet clamps - time to get sweatin!",
+"Info\nSauna door",
+"Info\nPerfect for watering rocks. They’re thirsty!",
+"Info\nSauna whisk. Made of plastic (what a disgrace).\nReal birch branches would create too much debris.",
+"Info\nMore löyly!",
+"Info\nBeer",
+"Info\nEven more löyly!!!",
+"Info\nRadio",
+"Info\nSmart window",
+"Info\nSauna stove",
+"Info\nTemperature sensor"]
+
+
+
+
+
+
 var taskTexts = [
-"Task 1|20\nTurn the sauna heater on",
-"Task 2|20\nTurn the sauna ventilation on",
+"Task 1|20\nTurn on the sauna heater",
+"Task 2|20\nTurn on the sauna ventilation ",
 "Task 3|20\nTake off your clothes",
 "Task 4|20\nOpen the shower door",
 "Task 5|20\nSecure your feet to the shower",
@@ -32,14 +49,14 @@ var taskTexts = [
 "Task 10|20\nDetach yourself",
 "Task 11|20\nOpen the shower door",
 "Task 12|20\nOpen the sauna door",
-"Task 13|20\nGo inside sauna",
+"Task 13|20\nAttach yourself to the floor",
 "Task 14|20\nClose the sauna door",
-"Task 15|20\nAttach yourself to the floor",
-"Task 16|20\nThrow löyly!",
-"Task 17|20\nUse the sauna whisk",
-"Task 18|20\nThrow löyty!",
-"Task 19|20\nEnjoy a cold one",
-"Task 20|20\nThrow löyty!"]
+"Task 17|20\nThrow löyly!",
+"Task 18|20\nUse the sauna whisk",
+"Task 19|20\nThrow löyty!",
+"Task 20|20\nEnjoy a cold one",
+"Task 21|20\nThrow löyty!",
+"All tasks done. Enjoy life."]
 
 var currentInfo = 0
 var currentTask = 0
@@ -53,7 +70,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	var ray =  $"../PlayerPawn/Camera/ViewRay"
-	ray.target_position.z = -0.4
+	ray.target_position.z = -1.6
 	taskManager = get_parent().find_child("TaskManager")
 	player = get_parent().find_child("PlayerPawn")
 	HideInfo()
@@ -72,11 +89,12 @@ func _process(delta: float) -> void:
 	if(ray.is_colliding()):
 		if(targetObject.is_in_group("Interactable")):
 			collisionTimer = 0
-			var interaction_object_id = targetObject.get_name().to_int()
-			ShowInfo(interaction_object_id)
+			var interaction_object_ids = TaskManager.get_interaction_ids(targetObject.get_name())
+			var best_match_interaction_id = TaskManager.get_best_match_interaction_id(interaction_object_ids, currentTask)
+			ShowInfo(best_match_interaction_id if best_match_interaction_id > 0 else interaction_object_ids[0])
 			#if Input.is_key_pressed(KEY_ENTER):
 			if Input.is_action_pressed("interact"):
-				taskManager.interacted_with(interaction_object_id, targetObject)
+				taskManager.interacted_with(best_match_interaction_id, targetObject)
 	else:
 		if(collisionTimer > 0.33):
 			HideInfo()
