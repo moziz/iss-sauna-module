@@ -1,9 +1,10 @@
-[gd_scene load_steps=61 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=75 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
 [ext_resource type="Script" uid="uid://b7kb5beykdbtn" path="res://buttonAnimation.gd" id="3_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://81d2g1oftyf5" path="res://assets/kiulu.fbx" id="3_2oqcl"]
+[ext_resource type="AudioStream" uid="uid://b68nbobhmchnp" path="res://assets/audio/sfx/kiulu_pump.wav" id="5_qmn0i"]
 [ext_resource type="PackedScene" uid="uid://csoyj50qx4aqk" path="res://assets/models/showerRoom.fbx" id="6_o1q1g"]
 [ext_resource type="PackedScene" uid="uid://cpy1f7nygdewb" path="res://assets/models/superDoorToShowerRoom.fbx" id="7_gne00"]
 [ext_resource type="PackedScene" uid="uid://8cqkyx24gxgg" path="res://assets/models/superDoorToShowerRoomGlass.fbx" id="8_jolga"]
@@ -27,17 +28,28 @@
 [ext_resource type="PackedScene" uid="uid://c0300wpvvhyo7" path="res://assets/vasta.fbx" id="20_3inim"]
 [ext_resource type="PackedScene" uid="uid://cygpy613aba56" path="res://assets/water.fbx" id="22_oy7hm"]
 [ext_resource type="Shader" uid="uid://dv2f46tt43kom" path="res://water.tres" id="23_5jx5j"]
-[ext_resource type="Script" uid="uid://c2gn5gchio6rd" path="res://clothesnest.gd" id="23_fln2q"]
+[ext_resource type="Script" uid="uid://c2gn5gchio6rd" path="res://just_play_the_audio.gd" id="23_fln2q"]
 [ext_resource type="AudioStream" uid="uid://c3ughd1vk8sm1" path="res://assets/audio/sfx/taking_off_clothes.wav" id="24_de3n0"]
 [ext_resource type="PackedScene" uid="uid://brx4xvko6u10n" path="res://assets/models/saunaButtonFrame.fbx" id="24_jolga"]
 [ext_resource type="PackedScene" uid="uid://d2x5toobhgd1f" path="res://assets/models/saunaButtonButton.fbx" id="25_8hq0f"]
 [ext_resource type="Texture2D" uid="uid://yqmh58bnlkqg" path="res://assets/Sauna_warming_Icon_Jam.png" id="26_qrg3e"]
+[ext_resource type="Script" uid="uid://4ubqualykyaf" path="res://beer.gd" id="27_cdv10"]
 [ext_resource type="Texture2D" uid="uid://8o7oe0edaguc" path="res://assets/Sweat_button_icon_Sauna_Jam.png" id="27_qjy7u"]
+[ext_resource type="AudioStream" uid="uid://dpcb3lfjmn7id" path="res://assets/audio/sfx/beer_straw_1.wav" id="28_gcc53"]
+[ext_resource type="Script" uid="uid://bggv86grgwi0x" path="res://whisk.gd" id="28_xogae"]
+[ext_resource type="AudioStream" uid="uid://b43apfahndc3y" path="res://assets/audio/sfx/sauna_whisk_1.wav" id="29_7h8t1"]
+[ext_resource type="AudioStream" uid="uid://def6vd45c5oei" path="res://assets/audio/sfx/sauna_whisk_2.wav" id="29_80lew"]
 [ext_resource type="PackedScene" uid="uid://crlx2jnid3eyi" path="res://assets/dome.fbx" id="31_8hq0f"]
+[ext_resource type="AudioStream" uid="uid://81qdvsb4763r" path="res://assets/audio/sfx/sauna_whisk_3.wav" id="31_cdv10"]
+[ext_resource type="AudioStream" uid="uid://dy4tsriy4rd26" path="res://assets/audio/sfx/sauna_whisk_4.wav" id="32_gcc53"]
 [ext_resource type="Script" uid="uid://dvdej2d8conyi" path="res://sauna_feet.gd" id="33_qjy7u"]
 [ext_resource type="Script" uid="uid://dibv5ljb6hmdd" path="res://floating.gd" id="34_t77ke"]
 [ext_resource type="Texture2D" uid="uid://dh5d103sc028a" path="res://assets/imageBehindSuperDoor.png" id="34_wnqn2"]
 [ext_resource type="AudioStream" uid="uid://d1wcl3wdcknnq" path="res://assets/audio/music/music_sakkijarvenpolkka_loop.ogg" id="36_fln2q"]
+[ext_resource type="Script" uid="uid://dqu0076n0ramh" path="res://heater_button.gd" id="41_k1nct"]
+[ext_resource type="AudioStream" uid="uid://brpivwe2nu3mi" path="res://assets/audio/sfx/sauna_warmup.wav" id="41_x8rha"]
+[ext_resource type="Script" uid="uid://csjx3swqdrplq" path="res://saunafan.gd" id="44_ur7sm"]
+[ext_resource type="AudioStream" uid="uid://btrk3ta3dcddn" path="res://assets/audio/sfx/sauna_fan.wav" id="45_k546y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
 
@@ -85,6 +97,13 @@ height = 0.540865
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qjy7u"]
 radius = 0.230183
 height = 0.935332
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qmn0i"]
+streams_count = 4
+stream_0/stream = ExtResource("29_7h8t1")
+stream_1/stream = ExtResource("29_80lew")
+stream_2/stream = ExtResource("31_cdv10")
+stream_3/stream = ExtResource("32_gcc53")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnqn2"]
 render_priority = 0
@@ -140,6 +159,9 @@ speed = 1.0
 curve = SubResource("Curve_2f2h0")
 
 [node name="kiulu" parent="Kiulu/14 16 18" instance=ExtResource("3_2oqcl")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Kiulu/14 16 18"]
+stream = ExtResource("5_qmn0i")
 
 [node name="showerRoom" parent="." instance=ExtResource("6_o1q1g")]
 
@@ -295,6 +317,7 @@ shape = SubResource("SphereShape3D_qrg3e")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ClothesNet/2"]
 stream = ExtResource("24_de3n0")
+volume_db = 57.893
 
 [node name="Radio" parent="." instance=ExtResource("18_a18vj")]
 transform = Transform3D(8.06674e-08, 0, -0.615152, 0, 0.615152, 0, 0.615152, 0, 8.06674e-08, 1.49586, 0.908142, 1.31105)
@@ -304,18 +327,26 @@ transform = Transform3D(0.285166, -0.88409, 0.370224, -0.481525, 0.201835, 0.852
 
 [node name="17" type="StaticBody3D" parent="Beer" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204118, 5.58794e-09)
+script = ExtResource("27_cdv10")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Beer/17"]
 shape = SubResource("CapsuleShape3D_wnqn2")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Beer/17"]
+stream = ExtResource("28_gcc53")
 
 [node name="Whisk" parent="." instance=ExtResource("20_3inim")]
 transform = Transform3D(0.498656, -0.488649, 0.0802782, 0.490525, 0.503032, 0.014985, -0.0678816, 0.0454007, 0.698005, -2.64845, 0.714491, 0.712488)
 
 [node name="15" type="StaticBody3D" parent="Whisk" groups=["Interactable"]]
+script = ExtResource("28_xogae")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Whisk/15"]
 transform = Transform3D(1, -2.23517e-08, 0, -5.4948e-08, 1, 0, 0, 0, 1, -0.013864, 0.528438, -0.0357198)
 shape = SubResource("CapsuleShape3D_qjy7u")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Whisk/15"]
+stream = SubResource("AudioStreamRandomizer_qmn0i")
 
 [node name="Water" parent="." instance=ExtResource("22_oy7hm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56454, 0.56071, 0.0375381)
@@ -335,9 +366,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fln2q")
 
 [node name="0" type="StaticBody3D" parent="SaunaHeaterButton" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50195, 0.696161, 0.736202)
+script = ExtResource("41_k1nct")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaunaHeaterButton/0"]
 shape = SubResource("SphereShape3D_8hq0f")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SaunaHeaterButton/0"]
+stream = ExtResource("41_x8rha")
 
 [node name="SaunaFanButton" parent="." instance=ExtResource("24_jolga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00465873, -0.00117618, -1.49144)
@@ -352,9 +387,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_de3n0")
 
 [node name="1" type="StaticBody3D" parent="SaunaFanButton" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50195, 0.696161, 0.736202)
+script = ExtResource("44_ur7sm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaunaFanButton/1"]
 shape = SubResource("SphereShape3D_8hq0f")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SaunaFanButton/1"]
+stream = ExtResource("45_k546y")
 
 [node name="12" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1.54244, 1.58417, 0.0572683)

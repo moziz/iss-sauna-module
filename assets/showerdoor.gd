@@ -10,3 +10,5 @@ func Interact(id: int):
 		parentti.rotate_y(-PI/2)
 	else:
 		print("Unknown id: ", id)
+	
+	$AudioStreamPlayer3D.play()

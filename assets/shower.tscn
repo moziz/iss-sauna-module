@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgub8y4sqni2b"]
+[gd_scene load_steps=19 format=3 uid="uid://cgub8y4sqni2b"]
 
 [ext_resource type="PackedScene" uid="uid://dwawmv447okfk" path="res://assets/models/showerTube.fbx" id="1_1adgx"]
 [ext_resource type="PackedScene" uid="uid://bb5t1683khnoa" path="res://assets/models/showerTubeDoor.fbx" id="2_sn4hl"]
@@ -7,8 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://ds50nfxvrriyq" path="res://assets/models/onButtonShower.fbx" id="3_sr34h"]
 [ext_resource type="PackedScene" uid="uid://cso4yrq21lgoe" path="res://assets/models/offButtonShower.fbx" id="4_sbvq7"]
 [ext_resource type="PackedScene" uid="uid://db5iqsrbgk33r" path="res://assets/models/showerTubeDoorGlass.fbx" id="4_xf88y"]
-[ext_resource type="Script" path="res://assets/showerdoor.gd" id="6_xf88y"]
-[ext_resource type="Script" path="res://assets/shower_feet.gd" id="9_5w572"]
+[ext_resource type="Script" uid="uid://c1r4i7dj5osf4" path="res://assets/showerdoor.gd" id="6_xf88y"]
+[ext_resource type="AudioStream" uid="uid://b5c1qourf457i" path="res://assets/audio/sfx/shower_door_open.wav" id="7_nsir1"]
+[ext_resource type="Script" uid="uid://dtqtcduodn841" path="res://assets/shower_feet.gd" id="9_5w572"]
+[ext_resource type="Script" uid="uid://dj8ak8gk7s17q" path="res://assets/showerhead.gd" id="11_tp6ss"]
+[ext_resource type="AudioStream" uid="uid://xamux6mqqgjg" path="res://assets/audio/sfx/showering.wav" id="12_dntc7"]
+[ext_resource type="Script" uid="uid://c73yey30q3kcg" path="res://assets/showersuction.gd" id="13_dntc7"]
+[ext_resource type="AudioStream" uid="uid://dpq42j50tnxmb" path="res://assets/audio/sfx/shower_suction.wav" id="14_yga4w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sbvq7"]
 size = Vector3(0.72728, 1.923, 0.0545654)
@@ -46,6 +51,9 @@ script = ExtResource("6_xf88y")
 transform = Transform3D(0.932305, 0, 0.361673, 0, 1, 0, -0.361673, 0, 0.932305, 0.17824, 0.987991, 0.371646)
 shape = SubResource("BoxShape3D_sbvq7")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="showerTubeDoor/3 5 10"]
+stream = ExtResource("7_nsir1")
+
 [node name="onButtonShower" parent="." instance=ExtResource("3_sr34h")]
 
 [node name="offButtonShower" parent="." instance=ExtResource("4_sbvq7")]
@@ -65,15 +73,23 @@ shape = SubResource("SphereShape3D_sbvq7")
 
 [node name="7" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00209981, 1.74248, -0.214817)
+script = ExtResource("11_tp6ss")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="7"]
 shape = SubResource("SphereShape3D_xf88y")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="7"]
+stream = ExtResource("12_dntc7")
+
 [node name="8" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0822198, 1.3832, -0.427477)
+script = ExtResource("13_dntc7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="8"]
 shape = SubResource("SphereShape3D_sbvq7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="8"]
+stream = ExtResource("14_yga4w")
 
 [editable path="showerTube/showerTubeGlass"]
 [editable path="showerTubeDoor/showerTubeDoorGlass"]
