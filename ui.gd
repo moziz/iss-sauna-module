@@ -51,11 +51,11 @@ var taskTexts = [
 "Task 12|20\nOpen the sauna door",
 "Task 13|20\nAttach yourself to the floor",
 "Task 14|20\nClose the sauna door",
-"Task 17|20\nThrow löyly!",
-"Task 18|20\nUse the sauna whisk",
+"Task 15|20\nThrow löyly!",
+"Task 16|20\nUse the sauna whisk",
+"Task 17|20\nThrow löyty!",
+"Task 18|20\nEnjoy a cold one",
 "Task 19|20\nThrow löyty!",
-"Task 20|20\nEnjoy a cold one",
-"Task 21|20\nThrow löyty!",
 "All tasks done. Enjoy life."]
 
 var currentInfo = 0
