@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=60 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://sauna_feet.gd" id="33_qjy7u"]
 [ext_resource type="Script" uid="uid://dibv5ljb6hmdd" path="res://floating.gd" id="34_t77ke"]
 [ext_resource type="Texture2D" uid="uid://dh5d103sc028a" path="res://assets/imageBehindSuperDoor.png" id="34_wnqn2"]
+[ext_resource type="AudioStream" uid="uid://d1wcl3wdcknnq" path="res://assets/audio/music/music_sakkijarvenpolkka_loop.ogg" id="36_fln2q"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
 
@@ -401,6 +402,14 @@ transform = Transform3D(-26.0144, 2.27425e-06, 0, -2.27425e-06, -26.0144, 0, 0, 
 
 [node name="dome2" parent="Node3D/dome" instance=ExtResource("31_8hq0f")]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29642, 1.08554, 1.31306)
+stream = ExtResource("36_fln2q")
+volume_db = 1.0
+autoplay = true
+max_distance = 2.8
+parameters/looping = true
 
 [editable path="superDoorToShowerRoom/superDoorToShowerRoomGlass"]
 [editable path="saunaRoom"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cicsnrmc3tavf"]
+[gd_scene load_steps=6 format=3 uid="uid://cicsnrmc3tavf"]
 
 [ext_resource type="Script" uid="uid://bmx37ocrk7t4u" path="res://player_pawn.gd" id="1_f52xy"]
+[ext_resource type="AudioStream" uid="uid://coevr43u2s821" path="res://assets/audio/sfx/ambience.ogg" id="2_788fa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gh5hs"]
 radius = 0.2
@@ -28,3 +29,10 @@ target_position = Vector3(0, 0, -1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f52xy")
 camera_attributes = SubResource("CameraAttributesPractical_788fa")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_788fa")
+autoplay = true
+parameters/looping = true
