@@ -55,8 +55,16 @@ func _ready() -> void:
 	ray.target_position.z = -0.4
 	taskManager = get_parent().find_child("TaskManager")
 	HideInfo()
+	var fade = $Fade
+	fade.visible = false
+	fade.color.a = 0
 
 func _process(delta: float) -> void:
+	var fade = $Fade
+	if fade.visible:
+		fade.color.a += delta * 0.33
+		return
+	
 	var ray =  $"../PlayerPawn/Camera/ViewRay"
 	var targetObject = ray.get_collider()
 	if(ray.is_colliding()):
@@ -126,3 +134,7 @@ func ShowSpacebar():
 func HideSpacebar():
 	var space = $Spacebar
 	space.visible = false
+	
+func FadeToEnd():
+	var fade = $Fade
+	fade.visible = true
