@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=61 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://dgm1j4f2dsmnj" path="res://assets/meter.fbx" id="11_ji72h"]
 [ext_resource type="PackedScene" uid="uid://cxaejd12ehicj" path="res://assets/stovefan.fbx" id="12_hv5fw"]
 [ext_resource type="PackedScene" uid="uid://dahjo8bqbaxla" path="res://assets/models/saunaDoor.fbx" id="12_veemk"]
-[ext_resource type="Script" uid="uid://cgymovgb0cwp8" path="res://assets/stovefan.gd" id="13_wujch"]
+[ext_resource type="Script" path="res://assets/stovefan.gd" id="13_wujch"]
 [ext_resource type="PackedScene" uid="uid://cn64n4pxv0i13" path="res://assets/models/saunaDoorGlass.fbx" id="14_8hq0f"]
 [ext_resource type="PackedScene" uid="uid://0ql043hjvr1j" path="res://assets/net.fbx" id="15_jdhfq"]
-[ext_resource type="Script" path="res://sauna_door.gd" id="15_qjy7u"]
+[ext_resource type="Script" uid="uid://cgyy4nprkk7my" path="res://sauna_door.gd" id="15_qjy7u"]
 [ext_resource type="PackedScene" uid="uid://cf2b3msj4hp17" path="res://assets/models/saunaRoomGlass.fbx" id="15_qrg3e"]
 [ext_resource type="PackedScene" uid="uid://cxelt1npjh4d" path="res://assets/netclothes.fbx" id="16_ji72h"]
 [ext_resource type="PackedScene" uid="uid://dcjafg41df5c7" path="res://assets/radio.fbx" id="18_a18vj"]
@@ -27,12 +27,14 @@
 [ext_resource type="PackedScene" uid="uid://c0300wpvvhyo7" path="res://assets/vasta.fbx" id="20_3inim"]
 [ext_resource type="PackedScene" uid="uid://cygpy613aba56" path="res://assets/water.fbx" id="22_oy7hm"]
 [ext_resource type="Shader" uid="uid://dv2f46tt43kom" path="res://water.tres" id="23_5jx5j"]
+[ext_resource type="Script" uid="uid://c2gn5gchio6rd" path="res://clothesnest.gd" id="23_fln2q"]
+[ext_resource type="AudioStream" uid="uid://c3ughd1vk8sm1" path="res://assets/audio/sfx/taking_off_clothes.wav" id="24_de3n0"]
 [ext_resource type="PackedScene" uid="uid://brx4xvko6u10n" path="res://assets/models/saunaButtonFrame.fbx" id="24_jolga"]
 [ext_resource type="PackedScene" uid="uid://d2x5toobhgd1f" path="res://assets/models/saunaButtonButton.fbx" id="25_8hq0f"]
 [ext_resource type="Texture2D" uid="uid://yqmh58bnlkqg" path="res://assets/Sauna_warming_Icon_Jam.png" id="26_qrg3e"]
 [ext_resource type="Texture2D" uid="uid://8o7oe0edaguc" path="res://assets/Sweat_button_icon_Sauna_Jam.png" id="27_qjy7u"]
 [ext_resource type="PackedScene" uid="uid://crlx2jnid3eyi" path="res://assets/dome.fbx" id="31_8hq0f"]
-[ext_resource type="Script" path="res://sauna_feet.gd" id="33_qjy7u"]
+[ext_resource type="Script" uid="uid://dvdej2d8conyi" path="res://sauna_feet.gd" id="33_qjy7u"]
 [ext_resource type="Script" uid="uid://dibv5ljb6hmdd" path="res://floating.gd" id="34_t77ke"]
 [ext_resource type="Texture2D" uid="uid://dh5d103sc028a" path="res://assets/imageBehindSuperDoor.png" id="34_wnqn2"]
 [ext_resource type="AudioStream" uid="uid://d1wcl3wdcknnq" path="res://assets/audio/music/music_sakkijarvenpolkka_loop.ogg" id="36_fln2q"]
@@ -285,10 +287,14 @@ transform = Transform3D(1, -8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0, -8.7
 [node name="netclothes" parent="ClothesNet" instance=ExtResource("16_ji72h")]
 
 [node name="2" type="StaticBody3D" parent="ClothesNet" groups=["Interactable"]]
+script = ExtResource("23_fln2q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClothesNet/2"]
 transform = Transform3D(1, -6.6815e-22, 0, -6.6815e-22, 1, 0, 0, 0, 1, 0, -0.0218878, 0.0238166)
 shape = SubResource("SphereShape3D_qrg3e")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ClothesNet/2"]
+stream = ExtResource("24_de3n0")
 
 [node name="Radio" parent="." instance=ExtResource("18_a18vj")]
 transform = Transform3D(8.06674e-08, 0, -0.615152, 0, 0.615152, 0, 0.615152, 0, 8.06674e-08, 1.49586, 0.908142, 1.31105)
