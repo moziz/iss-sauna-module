@@ -1,10 +1,9 @@
-[gd_scene load_steps=49 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=47 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
 [ext_resource type="Script" uid="uid://b7kb5beykdbtn" path="res://buttonAnimation.gd" id="3_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://81d2g1oftyf5" path="res://assets/kiulu.fbx" id="3_2oqcl"]
-[ext_resource type="Texture2D" uid="uid://dve0cao3yb78f" path="res://assets/space.png" id="4_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://csoyj50qx4aqk" path="res://assets/models/showerRoom.fbx" id="6_o1q1g"]
 [ext_resource type="PackedScene" uid="uid://cpy1f7nygdewb" path="res://assets/models/superDoorToShowerRoom.fbx" id="7_gne00"]
 [ext_resource type="PackedScene" uid="uid://8cqkyx24gxgg" path="res://assets/models/superDoorToShowerRoomGlass.fbx" id="8_jolga"]
@@ -31,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://d2x5toobhgd1f" path="res://assets/models/saunaButtonButton.fbx" id="25_8hq0f"]
 [ext_resource type="Texture2D" uid="uid://yqmh58bnlkqg" path="res://assets/Sauna_warming_Icon_Jam.png" id="26_qrg3e"]
 [ext_resource type="Texture2D" uid="uid://8o7oe0edaguc" path="res://assets/Sweat_button_icon_Sauna_Jam.png" id="27_qjy7u"]
+[ext_resource type="PackedScene" uid="uid://crlx2jnid3eyi" path="res://assets/dome.fbx" id="31_8hq0f"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
 
@@ -43,11 +43,6 @@ height = 0.4
 [sub_resource type="Curve" id="Curve_2f2h0"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.496914, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
-
-[sub_resource type="QuadMesh" id="QuadMesh_o1q1g"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gne00"]
-albedo_texture = ExtResource("4_2f2h0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1q1g"]
 size = Vector3(3.36008, 2.2244, 0.243958)
@@ -112,11 +107,6 @@ speed = 1.0
 curve = SubResource("Curve_2f2h0")
 
 [node name="kiulu" parent="Kiulu/0" instance=ExtResource("3_2oqcl")]
-
-[node name="Space" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.38433e-07, -14.8661, -1.17977e-07, 0, -6.4982e-07, 2.699, -33.4266, -3.28411e-07, -5.96241e-08, -3.32827, -2.64907, 6.86385e-08)
-mesh = SubResource("QuadMesh_o1q1g")
-surface_material_override/0 = SubResource("StandardMaterial3D_gne00")
 
 [node name="showerRoom" parent="." instance=ExtResource("6_o1q1g")]
 
@@ -229,6 +219,7 @@ surface_material_override/0 = ExtResource("9_8hq0f")
 [node name="saunaRoomGlass" parent="saunaRoom" instance=ExtResource("15_qrg3e")]
 
 [node name="saunaRoomGlass" parent="saunaRoom/saunaRoomGlass" index="0"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0.0293665, 2.38419e-07, -0.007128)
 surface_material_override/0 = ExtResource("9_8hq0f")
 
 [node name="light_warm" parent="." instance=ExtResource("10_lgam8")]
@@ -293,6 +284,12 @@ transform = Transform3D(-7.85219e-09, 0, 0.179637, 0, 0.179637, 0, -0.179637, 0,
 mesh = SubResource("QuadMesh_t77ke")
 skeleton = NodePath("../../SaunaHeaterButton")
 surface_material_override/0 = SubResource("StandardMaterial3D_de3n0")
+
+[node name="dome" parent="." instance=ExtResource("31_8hq0f")]
+transform = Transform3D(-26.0144, 2.27425e-06, 0, -2.27425e-06, -26.0144, 0, 0, 0, 26.0144, -3.12715, 3.10006, 0)
+
+[node name="dome2" parent="dome" instance=ExtResource("31_8hq0f")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 
 [editable path="superDoorToShowerRoom/superDoorToShowerRoomGlass"]
 [editable path="saunaRoom"]

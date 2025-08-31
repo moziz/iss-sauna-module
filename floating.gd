@@ -5,4 +5,4 @@ extends Node
 
 
 func _process(delta: float) -> void:
-	self.quaternion
+	self.quaternion.rotate_object_local(rotateAxix, speed * delta)
