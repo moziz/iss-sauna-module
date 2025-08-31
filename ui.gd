@@ -16,13 +16,13 @@ var informationTexts = [
 "Info\nSauna feet clamps - time to get sweatin!",
 "Info\nSauna door",
 "Info\nPerfect for watering rocks. They’re thirsty!",
-"Info\nSauna whisk. Made of plastic (what a disgrace).\nReal birch branches would create too much debris.",
+"Info\nSauna whisk. Made of plastic (what a disgrace).\nReal birch branches would create too much debris.\nThis orbit-optimized sauna whisk stimulates muscles while in zero gravity. Punish yourself with caution!",
 "Info\nMore löyly!",
-"Info\nBeer",
-"Info\nEven more löyly!!!",
+"Info\nBrewed from water and recycled from the sweat of fellow astronauts aboard the ISS, this pouch of beer is more precious than gold – especially because drinking is explicitly against regulation.\nThe zero-gravity carbon dioxide bubble building in your stomach might make you suffer – but it’s worth it!",
+"Info\nEven more löyly!",
 "Info\nRadio",
 "Info\nSmart window",
-"Info\nSauna stove",
+"Info\nThis stove sucks in the water through the stones, pushing steam from the other side! Heated partially with waste heat from the rest of the station, it is truly a marvel of engineering, leaving all terrestrial saunas to shame!",
 "Info\nTemperature sensor"]
 
 var taskTexts = [
