@@ -12,8 +12,8 @@
 [node name="UI" type="Control" groups=["Interactable"]]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
 script = ExtResource("1_m6e0p")
 
 [node name="InfoBox" type="TextureRect" parent="."]
