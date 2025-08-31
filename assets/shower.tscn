@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ds50nfxvrriyq" path="res://assets/models/onButtonShower.fbx" id="3_sr34h"]
 [ext_resource type="PackedScene" uid="uid://cso4yrq21lgoe" path="res://assets/models/offButtonShower.fbx" id="4_sbvq7"]
 [ext_resource type="PackedScene" uid="uid://db5iqsrbgk33r" path="res://assets/models/showerTubeDoorGlass.fbx" id="4_xf88y"]
-[ext_resource type="Script" uid="uid://c1r4i7dj5osf4" path="res://assets/showerdoor.gd" id="6_xf88y"]
-[ext_resource type="Script" uid="uid://dtqtcduodn841" path="res://assets/shower_feet.gd" id="9_5w572"]
+[ext_resource type="Script" path="res://assets/showerdoor.gd" id="6_xf88y"]
+[ext_resource type="Script" path="res://assets/shower_feet.gd" id="9_5w572"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sbvq7"]
 size = Vector3(0.72728, 1.923, 0.0545654)

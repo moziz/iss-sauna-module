@@ -1,11 +1,5 @@
 class_name UI extends Control
 
-
-
-
-
-
-
 var informationTexts = [
 "Info\nHello space traveler! I am your friendly sauna gnome assistant, ready to help!\nBefore entering the sauna, cleanse your spirit with a refreshing shower.\nMeanwhile, ISS waste heat will be heating the sauna.\nReady to get your sweat on?",
 "Info\nThis Sweat Collector gathers the sweat bubbles excreted during a sauna session and gathers it for water recycling. Did you know? You are drinking the sweat of your colleagues!",
@@ -30,11 +24,6 @@ var informationTexts = [
 "Info\nSmart window",
 "Info\nSauna stove",
 "Info\nTemperature sensor"]
-
-
-
-
-
 
 var taskTexts = [
 "Task 1|20\nTurn on the sauna heater",
@@ -77,6 +66,7 @@ func _ready() -> void:
 	var fade = $Fade
 	fade.visible = false
 	fade.color.a = 0
+	ShowTask(0)
 
 func _process(delta: float) -> void:
 	var fade = $Fade
@@ -141,6 +131,9 @@ func HideInfo():
 		mouse.visible = false
 	
 func ShowTask(index):
+	if(index == 19):
+		FadeToEnd()
+	
 	if(index < taskTexts.size() &&  index >= 0):
 		currentTask = index
 		var taskText = $TaskBox/Task
