@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=78 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
@@ -109,6 +109,10 @@ height = 0.540865
 radius = 0.230183
 height = 0.935332
 
+[sub_resource type="Curve" id="Curve_ur7sm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.509579, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="QuadMesh" id="QuadMesh_t77ke"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fln2q"]
@@ -117,6 +121,10 @@ albedo_texture = ExtResource("26_qrg3e")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8hq0f"]
 radius = 0.1
+
+[sub_resource type="Curve" id="Curve_k546y"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.501916, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de3n0"]
 transparency = 1
@@ -392,15 +400,20 @@ stream = ExtResource("34_piccc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00465873, -0.00117618, 0.0183192)
 
 [node name="saunaButtonButton" parent="SaunaHeaterButton" instance=ExtResource("25_8hq0f")]
+script = ExtResource("3_2f2h0")
+targetPos = Vector3(-0.006, 0, 0)
+speed = 1.5
+curve = SubResource("Curve_ur7sm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SaunaHeaterButton"]
 transform = Transform3D(-7.85219e-09, 0, 0.179637, 0, 0.179637, 0, -0.179637, 0, -7.85219e-09, -1.49547, 0.864183, 0.732876)
 mesh = SubResource("QuadMesh_t77ke")
 surface_material_override/0 = SubResource("StandardMaterial3D_fln2q")
 
-[node name="0" type="StaticBody3D" parent="SaunaHeaterButton" groups=["Interactable"]]
+[node name="0" type="StaticBody3D" parent="SaunaHeaterButton" node_paths=PackedStringArray("animationNode") groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50195, 0.696161, 0.736202)
 script = ExtResource("41_k1nct")
+animationNode = NodePath("../saunaButtonButton")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaunaHeaterButton/0"]
 shape = SubResource("SphereShape3D_8hq0f")
@@ -412,6 +425,10 @@ stream = ExtResource("41_x8rha")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00465873, -0.00117618, -1.49144)
 
 [node name="saunaButtonButton" parent="SaunaFanButton" instance=ExtResource("25_8hq0f")]
+script = ExtResource("3_2f2h0")
+targetPos = Vector3(-0.006, 0, 0)
+speed = 1.5
+curve = SubResource("Curve_k546y")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="SaunaFanButton"]
 transform = Transform3D(-7.85219e-09, 0, 0.179637, 0, 0.179637, 0, -0.179637, 0, -7.85219e-09, -1.49547, 0.864183, 0.738479)
@@ -419,9 +436,10 @@ mesh = SubResource("QuadMesh_t77ke")
 skeleton = NodePath("../../SaunaHeaterButton")
 surface_material_override/0 = SubResource("StandardMaterial3D_de3n0")
 
-[node name="1" type="StaticBody3D" parent="SaunaFanButton" groups=["Interactable"]]
+[node name="1" type="StaticBody3D" parent="SaunaFanButton" node_paths=PackedStringArray("animationNode") groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50195, 0.696161, 0.736202)
 script = ExtResource("44_ur7sm")
+animationNode = NodePath("../saunaButtonButton")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaunaFanButton/1"]
 shape = SubResource("SphereShape3D_8hq0f")

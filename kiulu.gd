@@ -13,7 +13,7 @@ func Interact(id: int):
 	print("kiulu")
 	animationNode.Play()
 	$AudioStreamPlayer3D.play()
-	await get_tree().create_timer(1.8).timeout
+	await get_tree().create_timer(0.33).timeout
 	waterAnimation = true
 	waterAnimationValue = 0
 	water.visible = true
