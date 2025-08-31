@@ -1,8 +1,8 @@
-extends Node
+extends Node3D
 
 @export var rotateAxix: Vector3 
 @export var speed: float 
-
+var angle = 0;
 
 func _process(delta: float) -> void:
-	self.quaternion.rotate_object_local(rotateAxix, speed * delta)
+	self.basis = self.basis.rotated(rotateAxix.normalized(), speed * delta)
