@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://fcg8xj0gq6m1"]
+[gd_scene load_steps=78 format=3 uid="uid://fcg8xj0gq6m1"]
 
 [ext_resource type="Script" uid="uid://dfvdlsmv7ablq" path="res://kiulu.gd" id="2_2f2h0"]
 [ext_resource type="PackedScene" uid="uid://by1n7fxaud1uj" path="res://assets/kiuluButton.fbx" id="2_660kp"]
@@ -50,6 +50,7 @@
 [ext_resource type="AudioStream" uid="uid://brpivwe2nu3mi" path="res://assets/audio/sfx/sauna_warmup.wav" id="41_x8rha"]
 [ext_resource type="Script" uid="uid://csjx3swqdrplq" path="res://saunafan.gd" id="44_ur7sm"]
 [ext_resource type="AudioStream" uid="uid://btrk3ta3dcddn" path="res://assets/audio/sfx/sauna_fan.wav" id="45_k546y"]
+[ext_resource type="PackedScene" uid="uid://chkhlgoqqc8mw" path="res://smoke.tscn" id="51_k546y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_w1di8"]
 
@@ -483,6 +484,9 @@ volume_db = 1.0
 autoplay = true
 max_distance = 2.8
 parameters/looping = true
+
+[node name="Smoke" parent="." instance=ExtResource("51_k546y")]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, -4.12022, 0.911819, 0)
 
 [editable path="superDoorToShowerRoom/superDoorToShowerRoomGlass"]
 [editable path="saunaRoom"]
