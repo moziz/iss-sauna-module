@@ -1,16 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgub8y4sqni2b"]
+[gd_scene load_steps=8 format=3 uid="uid://cgub8y4sqni2b"]
 
 [ext_resource type="PackedScene" uid="uid://dwawmv447okfk" path="res://assets/models/showerTube.fbx" id="1_1adgx"]
 [ext_resource type="PackedScene" uid="uid://bb5t1683khnoa" path="res://assets/models/showerTubeDoor.fbx" id="2_sn4hl"]
+[ext_resource type="PackedScene" uid="uid://qyu3rrgaojac" path="res://assets/models/showerTubeGlass.fbx" id="2_sr34h"]
+[ext_resource type="Material" uid="uid://cidb0hjvxebu1" path="res://assets/glass.tres" id="3_sbvq7"]
 [ext_resource type="PackedScene" uid="uid://ds50nfxvrriyq" path="res://assets/models/onButtonShower.fbx" id="3_sr34h"]
 [ext_resource type="PackedScene" uid="uid://cso4yrq21lgoe" path="res://assets/models/offButtonShower.fbx" id="4_sbvq7"]
+[ext_resource type="PackedScene" uid="uid://db5iqsrbgk33r" path="res://assets/models/showerTubeDoorGlass.fbx" id="4_xf88y"]
 
 [node name="shower" type="Node3D"]
 
 [node name="showerTube" parent="." instance=ExtResource("1_1adgx")]
 
+[node name="showerTubeGlass" parent="showerTube" instance=ExtResource("2_sr34h")]
+
+[node name="showerTubeGlass" parent="showerTube/showerTubeGlass" index="0"]
+surface_material_override/0 = ExtResource("3_sbvq7")
+
 [node name="showerTubeDoor" parent="." instance=ExtResource("2_sn4hl")]
+
+[node name="showerTubeDoorGlass" parent="showerTubeDoor" instance=ExtResource("4_xf88y")]
+
+[node name="showerTubeDoorGlass" parent="showerTubeDoor/showerTubeDoorGlass" index="0"]
+surface_material_override/0 = ExtResource("3_sbvq7")
 
 [node name="onButtonShower" parent="." instance=ExtResource("3_sr34h")]
 
 [node name="offButtonShower" parent="." instance=ExtResource("4_sbvq7")]
+
+[editable path="showerTube/showerTubeGlass"]
+[editable path="showerTubeDoor/showerTubeDoorGlass"]
