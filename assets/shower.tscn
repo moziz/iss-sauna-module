@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgub8y4sqni2b"]
+[gd_scene load_steps=20 format=3 uid="uid://cgub8y4sqni2b"]
 
 [ext_resource type="PackedScene" uid="uid://dwawmv447okfk" path="res://assets/models/showerTube.fbx" id="1_1adgx"]
 [ext_resource type="PackedScene" uid="uid://bb5t1683khnoa" path="res://assets/models/showerTubeDoor.fbx" id="2_sn4hl"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://db5iqsrbgk33r" path="res://assets/models/showerTubeDoorGlass.fbx" id="4_xf88y"]
 [ext_resource type="Script" uid="uid://c1r4i7dj5osf4" path="res://assets/showerdoor.gd" id="6_xf88y"]
 [ext_resource type="AudioStream" uid="uid://b5c1qourf457i" path="res://assets/audio/sfx/shower_door_open.wav" id="7_nsir1"]
-[ext_resource type="Script" uid="uid://dtqtcduodn841" path="res://assets/shower_feet.gd" id="9_5w572"]
+[ext_resource type="Script" path="res://assets/shower_feet.gd" id="9_5w572"]
 [ext_resource type="Script" uid="uid://dj8ak8gk7s17q" path="res://assets/showerhead.gd" id="11_tp6ss"]
 [ext_resource type="AudioStream" uid="uid://xamux6mqqgjg" path="res://assets/audio/sfx/showering.wav" id="12_dntc7"]
 [ext_resource type="Script" uid="uid://c73yey30q3kcg" path="res://assets/showersuction.gd" id="13_dntc7"]
@@ -27,6 +27,9 @@ radius = 0.107262
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xf88y"]
 radius = 0.176161
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dntc7"]
+size = Vector3(0.0687256, 2.20789, 0.308472)
 
 [node name="shower" type="Node3D"]
 
@@ -90,6 +93,40 @@ shape = SubResource("SphereShape3D_sbvq7")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="8"]
 stream = ExtResource("14_yga4w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.516812, 0.973345, -0.0160522)
+shape = SubResource("BoxShape3D_dntc7")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.937179, 0, 0.34885, 0, 1, 0, -0.34885, 0, 0.937179, -0.462422, 0.973345, 0.243812)
+shape = SubResource("BoxShape3D_dntc7")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.820451, 0, -0.571716, 0, 1, 0, 0.571716, 0, 0.820451, -0.441259, 0.973345, -0.267154)
+shape = SubResource("BoxShape3D_dntc7")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.408633, 0, -0.912699, 0, 1, 0, 0.912699, 0, 0.408633, -0.216824, 0.973345, -0.467146)
+shape = SubResource("BoxShape3D_dntc7")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.118525, 0, -0.992951, 0, 1, 0, 0.992951, 0, -0.118525, 0.0720542, 0.973345, -0.520477)
+shape = SubResource("BoxShape3D_dntc7")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.595342, 0, -0.803473, 0, 1, 0, 0.803473, 0, -0.595342, 0.325378, 0.973345, -0.416037)
+shape = SubResource("BoxShape3D_dntc7")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.947115, 0, -0.320894, 0, 1, 0, 0.320894, 0, -0.947115, 0.474261, 0.973345, -0.204934)
+shape = SubResource("BoxShape3D_dntc7")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.9951, 0, 0.0988681, 0, 1, 0, -0.0988681, 0, -0.9951, 0.512038, 0.973345, 0.0772775)
+shape = SubResource("BoxShape3D_dntc7")
 
 [editable path="showerTube/showerTubeGlass"]
 [editable path="showerTubeDoor/showerTubeDoorGlass"]
