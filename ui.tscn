@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://33klbagvufw"]
+[gd_scene load_steps=9 format=3 uid="uid://33klbagvufw"]
 
 [ext_resource type="Script" uid="uid://c4bv6tuwdst4g" path="res://ui.gd" id="1_m6e0p"]
 [ext_resource type="FontFile" uid="uid://csu0ehlkbgujy" path="res://assets/TASAExplorer-Regular.ttf" id="2_27fn8"]
 [ext_resource type="Texture2D" uid="uid://caqwufpo0nt5r" path="res://assets/Text_box_wide_2_jam.png" id="2_ibotj"]
 [ext_resource type="Texture2D" uid="uid://btb5youjgowol" path="res://assets/final_list_box_3_jam.png" id="4_n5ude"]
+[ext_resource type="Texture2D" uid="uid://cs0qapdknurd8" path="res://assets/saunatonttu.png" id="4_waa4j"]
+[ext_resource type="Script" uid="uid://cl03nc8xiwyyq" path="res://tonttu.gd" id="5_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://bcxg138oljws8" path="res://assets/Space_Bar_UI_Sauna_Jam.png" id="5_y4yjw"]
 [ext_resource type="Texture2D" uid="uid://caxoqrj2hk1dg" path="res://assets/mouse_Icon_jam_sauna.png" id="6_n5ude"]
 
@@ -33,6 +35,18 @@ theme_override_colors/default_color = Color(0.947851, 0.833667, 0.835011, 1)
 theme_override_fonts/normal_font = ExtResource("2_27fn8")
 text = "Information
 Testi teksti jee"
+
+[node name="Tonttu" type="TextureRect" parent="InfoBox"]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 247.0
+offset_right = 159.0
+offset_bottom = 522.0
+texture = ExtResource("4_waa4j")
+expand_mode = 1
+script = ExtResource("5_ok7cu")
+moveX = 20.0
+moveY = 20.0
 
 [node name="TaskBox" type="TextureRect" parent="."]
 layout_mode = 0
