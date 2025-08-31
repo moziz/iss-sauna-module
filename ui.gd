@@ -1,9 +1,23 @@
 class_name UI extends Control
 
 var informationTexts = [
-"Info\nI am info",
-"Info\nI am info too",
-"Info\nI am info three"]
+"Info\nSauna heater",		#0
+"Info\nSauna ventilation",	#1
+"Info\nClothes net",		#2
+"Info\nShower door",		#3
+"Info\nShower feet clamps",	#4
+"Info\nShower start",		#5
+"Info\nShower head",		#6
+"Info\nShower stop",		#7
+"Info\nSauna door",			#8
+"Info\nSauna feet clamps",	#9
+"Info\nKiulu",				#10
+"Info\nSauna whisk",		#11
+"Info\nBeer",				#12
+"Info\nRadio",				#13
+"Info\nSmart window",		#14
+"Info\nSauna stove",		#15
+"Info\nTemperature sensor"]	#16
 			
 var taskTexts = [
 "Task 1|20\nTurn the sauna heater on",
