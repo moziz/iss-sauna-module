@@ -1,4 +1,4 @@
-extends RigidBody3D
+class_name PlayerPawn extends RigidBody3D
 
 @export var aim_speed = 0.0075
 @export var jump_force = 80.0

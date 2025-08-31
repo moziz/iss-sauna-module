@@ -46,6 +46,7 @@ var currentTask = 0
 var collisionTimer = 0
 
 var taskManager: TaskManager
+var player: PlayerPawn
 
 func _init() -> void:
 	pass
@@ -54,6 +55,7 @@ func _ready() -> void:
 	var ray =  $"../PlayerPawn/Camera/ViewRay"
 	ray.target_position.z = -0.4
 	taskManager = get_parent().find_child("TaskManager")
+	player = get_parent().find_child("PlayerPawn")
 	HideInfo()
 	var fade = $Fade
 	fade.visible = false
@@ -80,6 +82,9 @@ func _process(delta: float) -> void:
 			HideInfo()
 		else:
 			collisionTimer += delta
+	
+	var spacebar = $Spacabar
+	spacebar.visible = player.is_jump_allowed()
 
 func _input(event):
 	if Input.is_key_pressed(KEY_1): 
