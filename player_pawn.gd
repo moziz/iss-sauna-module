@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 		var jump_dir = $Camera.quaternion * Vector3.FORWARD;
 		apply_central_impulse(jump_dir * jump_force);
 		jump_cooldown_until_time = Time.get_ticks_msec() + jump_interval
+		$AudioStreamPlayer3D.play()
 		action_jump = false
 		
 	if confined:

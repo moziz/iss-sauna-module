@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cicsnrmc3tavf"]
+[gd_scene load_steps=11 format=3 uid="uid://cicsnrmc3tavf"]
 
 [ext_resource type="Script" uid="uid://bmx37ocrk7t4u" path="res://player_pawn.gd" id="1_f52xy"]
 [ext_resource type="AudioStream" uid="uid://coevr43u2s821" path="res://assets/audio/sfx/ambience.ogg" id="2_788fa"]
+[ext_resource type="AudioStream" uid="uid://byjktjqjjogfr" path="res://assets/audio/sfx/jump_1.wav" id="3_7d7wc"]
+[ext_resource type="AudioStream" uid="uid://dcbg16tiu8dut" path="res://assets/audio/sfx/jump_2.wav" id="4_k2v5m"]
+[ext_resource type="AudioStream" uid="uid://cscwge0qqpq64" path="res://assets/audio/sfx/jump_3.wav" id="5_inumh"]
+[ext_resource type="AudioStream" uid="uid://b8on7g4ses0r8" path="res://assets/audio/sfx/jump_4.wav" id="6_4l6n0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gh5hs"]
 radius = 0.2
@@ -9,6 +13,13 @@ radius = 0.2
 [sub_resource type="Environment" id="Environment_f52xy"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_788fa"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ag68s"]
+streams_count = 4
+stream_0/stream = ExtResource("3_7d7wc")
+stream_1/stream = ExtResource("4_k2v5m")
+stream_2/stream = ExtResource("5_inumh")
+stream_3/stream = ExtResource("6_4l6n0")
 
 [node name="PlayerPawn" type="RigidBody3D"]
 axis_lock_angular_x = true
@@ -36,3 +47,6 @@ camera_attributes = SubResource("CameraAttributesPractical_788fa")
 stream = ExtResource("2_788fa")
 autoplay = true
 parameters/looping = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ag68s")
