@@ -1,5 +1,4 @@
 extends StaticBody3D
 
 func Interact(id: int):
-	$"../6/AudioStreamPlayer3D".stop()
 	$AudioStreamPlayer3D.play()

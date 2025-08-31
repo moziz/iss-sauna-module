@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgub8y4sqni2b"]
+[gd_scene load_steps=22 format=3 uid="uid://cgub8y4sqni2b"]
 
 [ext_resource type="PackedScene" uid="uid://dwawmv447okfk" path="res://assets/models/showerTube.fbx" id="1_1adgx"]
 [ext_resource type="PackedScene" uid="uid://bb5t1683khnoa" path="res://assets/models/showerTubeDoor.fbx" id="2_sn4hl"]
@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://b5c1qourf457i" path="res://assets/audio/sfx/shower_door_open.wav" id="7_nsir1"]
 [ext_resource type="Script" path="res://assets/shower_feet.gd" id="9_5w572"]
 [ext_resource type="Script" uid="uid://dj8ak8gk7s17q" path="res://assets/showerhead.gd" id="11_tp6ss"]
+[ext_resource type="Script" uid="uid://1huabnlad7hs" path="res://assets/showerStart.gd" id="11_yga4w"]
+[ext_resource type="AudioStream" uid="uid://cuxkph82e0hvm" path="res://assets/audio/sfx/shower_mist_loop.ogg" id="12_8sfps"]
 [ext_resource type="AudioStream" uid="uid://xamux6mqqgjg" path="res://assets/audio/sfx/showering.wav" id="12_dntc7"]
 [ext_resource type="Script" uid="uid://c73yey30q3kcg" path="res://assets/showersuction.gd" id="13_dntc7"]
 [ext_resource type="AudioStream" uid="uid://dpq42j50tnxmb" path="res://assets/audio/sfx/shower_suction.wav" id="14_yga4w"]
@@ -70,9 +72,14 @@ shape = SubResource("CylinderShape3D_sbvq7")
 
 [node name="6" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249714, 1.3795, -0.361428)
+script = ExtResource("11_yga4w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="6"]
 shape = SubResource("SphereShape3D_sbvq7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="6"]
+stream = ExtResource("12_8sfps")
+parameters/looping = true
 
 [node name="7" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00209981, 1.74248, -0.214817)

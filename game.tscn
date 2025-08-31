@@ -10,7 +10,7 @@
 script = ExtResource("1_fc0e3")
 
 [node name="PlayerPawn" parent="." instance=ExtResource("1_80nbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22273, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.693441, 1.22273, 0.471073)
 
 [node name="Module" parent="." instance=ExtResource("2_feb5d")]
 

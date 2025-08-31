@@ -1,25 +1,25 @@
 class_name UI extends Control
 
 var informationTexts = [
-"Info\nHello space traveler! I am your friendly sauna gnome assistant, ready to help!\nBefore entering the sauna, cleanse your spirit with a refreshing shower.\nMeanwhile, ISS waste heat will be heating the sauna.\nReady to get your sweat on?",
-"Info\nThis Sweat Collector gathers the sweat bubbles excreted during a sauna session and gathers it for water recycling. Did you know? You are drinking the sweat of your colleagues!",
+"Info\nSauna heater\nHello space traveler! I am your friendly sauna gnome assistant, ready to help!\nBefore entering the sauna, cleanse your spirit with a refreshing shower.\nMeanwhile, ISS waste heat will be heating the sauna.\nReady to get your sweat on?",
+"Info\nSauna ventilation\nThis Sweat Collector gathers the sweat bubbles excreted during a sauna session and gathers it for water recycling. Did you know? You are drinking the sweat of your colleagues!",
 "Info\nA net for your clothes. Buck naked in the sauna, as they say!",
 "Info\nShower door",
 "Info\nWhoa! Dont float away, space cowboy! These feet clamps include temperature and shower controls usable by twisting your feet.",
 "Info\nShower door",
-"Info\nShower start",
+"Info\nShower start\nEnjoy your shower that feels more like a mist",
 "Info\nThe shower works much like a normal shower – except it’s more contained, and the water stays floating inside of the shower!",
 "Info\nTurns off the shower and sucks the water out with the suction head by pressing this button.",
 "Info\nDetach feet",
 "Info\nShower door",
-"Info\nSauna door",
-"Info\nSauna feet clamps - time to get sweatin!",
-"Info\nSauna door",
-"Info\nPerfect for watering rocks. They’re thirsty!",
-"Info\nSauna whisk. Made of plastic (what a disgrace).\nReal birch branches would create too much debris.\nThis orbit-optimized sauna whisk stimulates muscles while in zero gravity. Punish yourself with caution!",
-"Info\nMore löyly!",
+"Info\nSauna door\nBehind this is a stove that forces water through the stones, pushing steam from the other side! Heated partially with waste heat from the rest of the station, it is truly a marvel of engineering, leaving all terrestrial saunas to shame!",
+"Info\nSauna feet clamps\nTime to get sweatin!",
+"Info\nSauna door\nLast one in closes.",
+"Info\nContraption for watering rocks\nShoots water when pressed.",
+"Info\nSauna whisk\nMade of plastic (what a disgrace).\nReal birch branches would create too much debris.\nThis orbit-optimized sauna whisk stimulates muscles while in zero gravity. Punish yourself with caution!",
+"Info\nContraption for watering rocks\nShoots water when pressed.",
 "Info\nBrewed from water and recycled from the sweat of fellow astronauts aboard the ISS, this pouch of beer is more precious than gold – especially because drinking is explicitly against regulation.\nThe zero-gravity carbon dioxide bubble building in your stomach might make you suffer – but it’s worth it!",
-"Info\nEven more löyly!",
+"Info\nContraption for watering rocks\nShoots water when pressed.",
 "Info\nRadio",
 "Info\nSmart window",
 "Info\nThis stove sucks in the water through the stones, pushing steam from the other side! Heated partially with waste heat from the rest of the station, it is truly a marvel of engineering, leaving all terrestrial saunas to shame!",
@@ -71,7 +71,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var fade = $Fade
 	if fade.visible:
-		fade.color.a += delta * 0.33
+		fade.color.a += delta * 0.25
 		return
 	
 	var ray =  $"../PlayerPawn/Camera/ViewRay"
@@ -93,22 +93,6 @@ func _process(delta: float) -> void:
 	
 	var spacebar = $Spacabar
 	spacebar.visible = player.is_jump_allowed()
-
-func _input(event):
-	if Input.is_key_pressed(KEY_1): 
-		ShowInfo(0)
-		
-	if Input.is_key_pressed(KEY_2): 
-		ShowInfo(1)
-		
-	if Input.is_key_pressed(KEY_3): 
-		ShowInfo(2)
-		
-	if Input.is_key_pressed(KEY_0): 
-		HideInfo()
-		
-	if Input.is_key_pressed(KEY_N): 
-		ShowNextTask()
 
 func ShowInfo(index):
 	var infoBox = $InfoBox
